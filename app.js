@@ -18,6 +18,45 @@ const customerNameInput = document.getElementById("customerName");
 const getLocationBtn = document.getElementById("getLocation");
 let locationLink = "";
 
+// Evitar que el input dispare el click del producto
+document.querySelectorAll(".sugerencia-input").forEach(input => {
+  input.addEventListener("click", e => e.stopPropagation());
+});
+
+// Crear botón eliminar en cada card
+cards.forEach(card => {
+  const imgContainer = card.querySelector(".img-container");
+
+  const deleteBtn = document.createElement("div");
+  deleteBtn.classList.add("delete-badge");
+  deleteBtn.innerText = "✕";
+
+  imgContainer.appendChild(deleteBtn);
+
+  deleteBtn.onclick = (e) => {
+    e.stopPropagation(); // evita que agregue producto
+
+    const name = card.dataset.name;
+
+    if (!cart[name]) return;
+
+    const confirmar = confirm("¿Eliminar este producto completamente?");
+    if (!confirmar) return;
+
+    total -= cart[name].qty * cart[name].price;
+    delete cart[name];
+
+    saveData();
+    restoreBadges();
+    updateCart();
+  };
+});
+
+
+/* ===== INICIO ===== */
+restoreBadges();
+updateCart();
+
 
 
 /* ===== NOMBRE ===== */
@@ -27,29 +66,32 @@ if (customerNameInput) {
     localStorage.setItem("customerName", customerNameInput.value);
 }
 
-/* ===== INICIO ===== */
-restoreBadges();
-updateCart();
-
+/* ===== AGREGAR ===== */
 /* ===== AGREGAR ===== */
 cards.forEach(card => {
-  card.onclick = () => {
+  card.addEventListener("click", () => {
+
     const name = card.dataset.name;
     const price = Number(card.dataset.price);
-    const badge = card.querySelector(".badge");
+    const noteInput = card.querySelector(".sugerencia-input");
+    const note = noteInput ? noteInput.value.trim() : "";
 
-    if (!cart[name]) cart[name] = { qty: 0, price };
+    if (!cart[name]) {
+      cart[name] = { qty: 0, price, note: "" };
+    }
 
     cart[name].qty++;
     total += price;
 
-    badge.style.display = "flex";
-    badge.innerText = cart[name].qty;
+    // Siempre actualizar la nota si hay texto
+    cart[name].note = note;
 
     saveData();
+    restoreBadges();
     showToast();
     updateCart();
-  };
+
+  });
 });
 
 /* ===== CARRITO ===== */
@@ -113,7 +155,7 @@ document.querySelectorAll(".minus-btn").forEach(btn => {
 
 /* ===== WHATSAPP ===== */
 if (sendOrderBtn) {
-  sendOrderBtn.onclick = () => {
+  sendOrderBtn.onclick = async () => {
 
     if (!customerNameInput.value.trim()) {
       alert("Escribe tu nombre");
@@ -140,14 +182,19 @@ if (sendOrderBtn) {
       alert("Selecciona forma de pago");
       return;
     }
+	
 
     // ✅ AHORA SÍ: crear el mensaje primero
-    let msg = "🍔 CHEF BARRIOS\n";
+    let msg = "🍔 CHEF\n";
     msg += "Cliente: " + customerNameInput.value + "\n\n";
 
     for (let item in cart) {
       const sub = (cart[item].qty * cart[item].price).toFixed(2);
       msg += `${cart[item].qty} x ${item} - $${sub}\n`;
+	  
+	   if (cart[item].note) {
+    msg += `   📝 ${cart[item].note}\n`;
+  }
     }
 
     msg += "\nTotal: $" + total.toFixed(2);
@@ -190,30 +237,52 @@ for (let item in cart) {
   });
 }
 
+	// 🔒 BLOQUEAR BOTÓN
+	sendOrderBtn.disabled = true;
+	const textoOriginal = sendOrderBtn.innerText;
+	sendOrderBtn.innerText = "Enviando pedido...";
+	sendOrderBtn.style.opacity = "0.6";
+
 fetch("https://script.google.com/macros/s/AKfycbyGJlnvmafbFcEKK5RIESrH01NqGS6OBnZNimcZrJYTAy3ex49JeW2akv0tSAQ9-mMc/exec", {
   method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
   body: new URLSearchParams({
     cliente: customerNameInput.value,
     items: JSON.stringify(itemsArray)
   })
 })
-.then(() => {
-	
-	cart = {};
-total = 0;
-saveData();
-restoreBadges();
-updateCart();
+.then(res => res.text())
+.then(data => {
 
+  console.log("Respuesta de Sheets:", data);
 
-  // Ir a WhatsApp
+  if (data !== "OK") {
+    throw new Error("No respondió OK");
+  }
+
+  // 🧹 Limpiar carrito
+  cart = {};
+  total = 0;
+  saveData();
+  restoreBadges();
+  updateCart();
+
+  // 📲 Ir a WhatsApp
   window.location.href =
     "https://wa.me/529811064643?text=" + encodeURIComponent(msg);
 
 })
 .catch(error => {
+
   console.error("Error al guardar en Sheets:", error);
   alert("Hubo un problema guardando el pedido");
+
+  // 🔓 REACTIVAR BOTÓN
+  sendOrderBtn.disabled = false;
+  sendOrderBtn.innerText = textoOriginal;
+  sendOrderBtn.style.opacity = "1";
 });
   };
 }
@@ -226,14 +295,21 @@ function saveData(){
 
 /* ===== BADGES ===== */
 function restoreBadges(){
+
   document.querySelectorAll(".badge").forEach(b => b.style.display = "none");
+  document.querySelectorAll(".delete-badge").forEach(b => b.style.display = "none");
 
   for (let item in cart){
     document.querySelectorAll(".card").forEach(card => {
       if (card.dataset.name === item){
+
         const badge = card.querySelector(".badge");
+        const deleteBtn = card.querySelector(".delete-badge");
+
         badge.style.display = "flex";
         badge.innerText = cart[item].qty;
+
+        deleteBtn.style.display = "flex";
       }
     });
   }
@@ -300,6 +376,7 @@ const transferenciaRadio = document.querySelector(
 const campoCambio = document.getElementById("campo-cambio");
 const montoCambio = document.getElementById("monto-cambio");
 const datosTransferencia = document.getElementById("datos-transferencia");
+
 
 const paymentRadios = document.querySelectorAll("input[name='paymentType']");
 const requiereCambioRadios = document.querySelectorAll("input[name='requiereCambio']");
@@ -375,4 +452,9 @@ if (getLocationBtn) {
 }
 
 });
+
+
+
+
+
 
