@@ -243,7 +243,7 @@ for (let item in cart) {
 	sendOrderBtn.innerText = "Enviando pedido...";
 	sendOrderBtn.style.opacity = "0.6";
 
-fetch("https://script.google.com/macros/s/AKfycbyyQr2pyJIkGQy7IFP4a_ZZ0AeusHE1gZLbVUQy6m4aEeOvGnMeHX-MVe5uy5Lh4tTw/exec", {
+fetch("https://script.google.com/macros/s/AKfycbzTvobbO6O8z6UR0cHf9JE92gkeNAmjPeojsesqhd2Q7JZu8MHRXaVoVrQ4Q0ADD4PX/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded"
@@ -452,6 +452,7 @@ if (getLocationBtn) {
 }
 
 });
+
 
 
 
