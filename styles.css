@@ -454,6 +454,34 @@ body{
   }
 }
 
+/* ================= BOTÓN MAPA ================= */
+#openMap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                   /* espacio entre icono y texto */
+  background: #1db954;        /* color principal */
+  color: white;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+#openMap:hover {
+  background: #17a34a;        /* un verde un poco más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#openMap:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 
 
 
