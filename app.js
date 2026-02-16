@@ -15,7 +15,6 @@ const openCartBtn = document.getElementById("openCart");
 const closeCartBtn = document.getElementById("closeCart");
 const sendOrderBtn = document.getElementById("sendOrder");
 const customerNameInput = document.getElementById("customerName");
-const getLocationBtn = document.getElementById("getLocation");
 let locationLink = "";
 
 // Evitar que el input dispare el click del producto
@@ -503,5 +502,6 @@ if (closeMapBtn) {
 
 
 });
+
 
 
