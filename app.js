@@ -199,6 +199,25 @@ if (sendOrderBtn) {
     msg += "\nTotal: $" + total.toFixed(2);
     msg += "\nTipo de pedido: " + orderType.value;
 
+	if (orderType.value === "encargo") {
+
+  const selectedStore = document.querySelector("input[name='pickupStore']:checked");
+
+  if (!selectedStore) {
+    alert("Selecciona una tienda para recoger");
+    return;
+  }
+
+  const storeItem = selectedStore.closest(".store-item");
+  const storeName = storeItem.querySelector(".store-name").innerText;
+  const storeAddress = storeItem.querySelector(".store-address").innerText;
+
+  msg += "\nSucursal: " + storeName;
+  msg += "\nDirección tienda: " + storeAddress;
+
+}
+
+
     if (orderType.value === "domicilio") {
 
   if (!addressInput.value.trim()) {
@@ -516,6 +535,7 @@ if (closeMapBtn) {
 
 
 });
+
 
 
 
