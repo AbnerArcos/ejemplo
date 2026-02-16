@@ -382,7 +382,6 @@ const orderTypeRadios = document.querySelectorAll("input[name='orderType']");
 const addressSection = document.getElementById("addressSection");
 const pickupSection = document.getElementById("pickupSection");
 const pickupRadios = document.querySelectorAll("input[name='pickupStore']");
-const storeInfo = document.getElementById("storeInfo");
 
 /* =====================
    CAMBIO EN EFECTIVO
@@ -528,6 +527,7 @@ if (closeMapBtn) {
 
 
 });
+
 
 
 
