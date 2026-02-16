@@ -291,26 +291,31 @@
 
   <p class="section-title">Recoger en tienda</p>
 
-  <div class="radio-group">
-    <label>
+  <div class="store-item">
+    <label class="store-radio">
       <input type="radio" name="pickupStore" value="Tienda 1">
-      Tienda 1
+      <span class="store-name">Tienda 1</span>
     </label>
-  </div>
 
-  <div id="storeInfo" style="display:none; margin-top:8px;">
-    <p><strong>Dirección:</strong> Calle 123, Centro</p>
+    <span class="store-address">Calle 123, Centro</span>
 
     <a 
       href="https://maps.google.com/?q=19.4326,-99.1332"
       target="_blank"
-      id="openStoreMap"
+      class="store-link"
     >
-      📍 Ver en Google Maps
+      📍 Ver ubicación
     </a>
   </div>
 
-</div>
+  <div class="store-item">
+    <label class="store-radio">
+      <input type="radio" name="pickupStore" value="Tienda 2">
+      <span class="store-name">Tienda 2</span>
+    </label>
+
+    <span class="store-address">Av. Reforma #456</span
+
 
 
 
@@ -374,6 +379,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
