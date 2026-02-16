@@ -361,6 +361,9 @@ if (closeCartBtn) closeCartBtn.onclick = () => cartModal.classList.remove("activ
 
 const orderTypeRadios = document.querySelectorAll("input[name='orderType']");
 const addressSection = document.getElementById("addressSection");
+const pickupSection = document.getElementById("pickupSection");
+const pickupRadios = document.querySelectorAll("input[name='pickupStore']");
+const storeInfo = document.getElementById("storeInfo");
 
 /* =====================
    CAMBIO EN EFECTIVO
@@ -411,12 +414,23 @@ orderTypeRadios.forEach(radio => {
 
     if (this.value === "domicilio") {
       addressSection.style.display = "block";
-    } else {
+      pickupSection.style.display = "none";
+    } 
+    else if (this.value === "encargo") {
       addressSection.style.display = "none";
+      pickupSection.style.display = "block";
     }
 
   });
 });
+
+	/* ===== SELECCIÓN DE TIENDA ===== */
+pickupRadios.forEach(radio => {
+  radio.addEventListener("change", function () {
+    storeInfo.style.display = "block";
+  });
+});
+
 
 /* =====================
    MAPA INTERACTIVO
@@ -502,6 +516,7 @@ if (closeMapBtn) {
 
 
 });
+
 
 
 
