@@ -443,13 +443,6 @@ orderTypeRadios.forEach(radio => {
   });
 });
 
-	/* ===== SELECCIÓN DE TIENDA ===== */
-pickupRadios.forEach(radio => {
-  radio.addEventListener("change", function () {
-    storeInfo.style.display = "block";
-  });
-});
-
 
 /* =====================
    MAPA INTERACTIVO
@@ -535,6 +528,7 @@ if (closeMapBtn) {
 
 
 });
+
 
 
 
