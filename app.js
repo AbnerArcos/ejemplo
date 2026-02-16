@@ -243,14 +243,15 @@ for (let item in cart) {
 	sendOrderBtn.innerText = "Enviando pedido...";
 	sendOrderBtn.style.opacity = "0.6";
 
-fetch("https://script.google.com/macros/s/AKfycbwpZOHjd0vR30p-sc7DRsnH2mColRYB4BNJ3QKu7SoljRtQZf9aictX7e6VSU6ZloR6/exec", {
+ffetch("https://script.google.com/macros/s/AKfycbwpZOHjd0vR30p-sc7DRsnH2mColRYB4BNJ3QKu7SoljRtQZf9aictX7e6VSU6ZloR6/exec", {
   method: "POST",
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
   },
-  body: new URLSearchParams({
+  body: JSON.stringify({
     cliente: customerNameInput.value,
-    items: JSON.stringify(itemsArray)
+    items: itemsArray,
+    total: total
   })
 })
 .then(res => res.text())
@@ -269,7 +270,7 @@ fetch("https://script.google.com/macros/s/AKfycbwpZOHjd0vR30p-sc7DRsnH2mColRYB4B
   restoreBadges();
   updateCart();
 
-  // 📲 Ir a WhatsApp
+  // 📲 WhatsApp
   window.location.href =
     "https://wa.me/529811064643?text=" + encodeURIComponent(msg);
 
@@ -279,7 +280,7 @@ fetch("https://script.google.com/macros/s/AKfycbwpZOHjd0vR30p-sc7DRsnH2mColRYB4B
   console.error("Error al guardar en Sheets:", error);
   alert("Hubo un problema guardando el pedido");
 
-  // 🔓 REACTIVAR BOTÓN
+  // 🔓 Reactivar botón
   sendOrderBtn.disabled = false;
   sendOrderBtn.innerText = textoOriginal;
   sendOrderBtn.style.opacity = "1";
@@ -452,6 +453,7 @@ if (getLocationBtn) {
 }
 
 });
+
 
 
 
