@@ -283,7 +283,37 @@
 
 </div>
 
+</div>   <!-- aquí termina addressSection -->
+
+<!-- AQUI PEGA LO NUEVO 👇 -->
+
+<div class="order-section" id="pickupSection" style="display:none;">
+
+  <p class="section-title">Recoger en tienda</p>
+
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="pickupStore" value="Tienda 1">
+      Tienda 1
+    </label>
+  </div>
+
+  <div id="storeInfo" style="display:none; margin-top:8px;">
+    <p><strong>Dirección:</strong> Calle 123, Centro</p>
+
+    <a 
+      href="https://maps.google.com/?q=19.4326,-99.1332"
+      target="_blank"
+      id="openStoreMap"
+    >
+      📍 Ver en Google Maps
+    </a>
+  </div>
+
 </div>
+
+
+
 
 <!-- ===== FORMA DE PAGO ===== -->
 
@@ -344,6 +374,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
