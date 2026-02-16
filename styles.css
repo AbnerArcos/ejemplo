@@ -497,6 +497,38 @@ body{
 #openStoreMap:hover {
   background: #17a34a;
 }
+.store-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+
+  flex-wrap: nowrap; /* 🔥 evita que se bajen */
+}
+
+.store-name {
+  font-weight: 600;
+  white-space: nowrap; /* evita salto de línea */
+}
+
+.store-address {
+  flex: 1;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* si es muy larga, pone ... */
+}
+
+.store-link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 
 
 
