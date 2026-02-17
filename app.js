@@ -201,7 +201,7 @@ if (sendOrderBtn) {
 	
 
     // ✅ AHORA SÍ: crear el mensaje primero
-    let msg = "🍔 Fogón el Negrito\n";
+    let msg = "🍔 CHEF\n";
     msg += "Cliente: " + customerNameInput.value + "\n\n";
 
     for (let item in cart) {
@@ -661,6 +661,7 @@ function showCustomModal(title, bodyHTML, onConfirm){
 
 
 });
+
 
 
 
