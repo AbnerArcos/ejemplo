@@ -624,13 +624,14 @@ body{
   to{ transform: scale(1); opacity:1; }
 }
 .remove-btn {
-  background-color: #e53935; /* rojo elegante */
-  color: white;
-  border: none;
-  width: 28px;
-  height: 28px;
+  background-color: #ffffff;
+  color: #111827;
+
+  border: 1px solid #e5e7eb; /* gris muy suave */
+
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -638,18 +639,28 @@ body{
 
   font-size: 14px;
   font-weight: bold;
-  line-height: 1;
+  cursor: pointer;
 
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
+
+.remove-btn:hover {
+  background-color: #f9fafb;
+}
+
+.remove-btn:active {
+  transform: scale(0.85);
+  background-color: #e5e7eb;
+}
+
 
 .remove-btn:hover {
   background-color: #c62828;
   transform: scale(1.1);
 }
 #closeCart {
-  background: linear-gradient(135deg, #ff4d4d, #c62828);
-  color: white;
+  background: white;
+  color: black;
   border: none;
   width: 36px;
   height: 36px;
@@ -676,8 +687,8 @@ body{
   transform: scale(0.95);
 }
 .remove-btn {
-  background-color: #d32f2f; /* rojo base */
-  color: white;
+  background-color: white; /* rojo base */
+  color: black;
   border: none;
 
   width: 30px;
