@@ -35,7 +35,7 @@ cards.forEach(card => {
   deleteBtn.onclick = (e) => {
     e.stopPropagation(); // evita que agregue producto
 
-    const name = card.dataset.name;
+    const img = card.querySelector("img").src;
 
     if (!cart[name]) return;
 
@@ -79,19 +79,25 @@ function updateCart() {
 
 cartItems.innerHTML += `
   <div class="cart-item">
-    <span class="item-name">${item}</span>
 
-    <div class="qty-controls">
-  <button class="minus-btn" data-item="${item}">−</button>
-  <span>${cart[item].qty}</span>
-  <button class="plus-btn" data-item="${item}">+</button>
-  <button class="remove-btn" data-item="${item}">✕</button>
-</div>
+    <img src="${cart[item].img}" class="cart-img">
 
+    <div class="cart-info">
+      <span class="item-name">${item}</span>
+
+      <div class="qty-controls">
+        <button class="minus-btn" data-item="${item}">−</button>
+        <span>${cart[item].qty}</span>
+        <button class="plus-btn" data-item="${item}">+</button>
+        <button class="remove-btn" data-item="${item}">✕</button>
+      </div>
+    </div>
 
     <span class="item-price">$${subtotal}</span>
+
   </div>
 `;
+
   }
 
   summary.innerText = `${count} productos - $${total.toFixed(2)}`;
@@ -622,8 +628,13 @@ modalAdd.onclick = () => {
   }
 
   if (!cart[name]) {
-    cart[name] = { qty: 0, price: selected.price };
-  }
+  cart[name] = {
+    qty: 0,
+    price: selected.price,
+    img: modalImage.src   // 🔥 guardamos imagen
+  };
+}
+
 
   cart[name].qty++;
   total += selected.price;
