@@ -404,10 +404,10 @@ paymentRadios.forEach(radio => {
     "Instrucción para Pago por transferencia 💳",
     `
     <ol style="text-align:left; padding-left:15px;">
-      <li>Selecciona el metodo de pago con transferencia.</li>
+      <li>Envia tu pedido con metodo de trasferencia.</li>
       <li>Espera a que confirmemos disponibilidad de productos.</li>
 	  <li>Una vez se confirme la disponibilidad de los productos te mandaremos el total.</li>
-	  <li>Realiza el pago por transferencia.</li>
+	  <li>Realiza el pago.</li>
       <li>Envía tu comprobante por WhatsApp.</li>
       <li>Tu pedido comenzará a prepararse al validar el pago.</li>
     </ol>
