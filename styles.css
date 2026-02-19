@@ -455,48 +455,43 @@ body{
 }
 
 /* ================= BOTÓN MAPA ================= */
+/* ================= BOTÓN MAPA MEJORADO ================= */
 #openMap {
   display: inline-flex;
   align-items: center;
-  gap: 8px;                   /* espacio entre icono y texto */
-  background: #1db954;        /* color principal */
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  margin-top: 8px;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
-  font-weight: bold;
-  padding: 6px 12px;
+
+  padding: 12px;
   border: none;
-  border-radius: 25px;
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 18px rgba(34,197,94,0.35);
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-  font-size: 15px;
+  transition: all 0.2s ease;
 }
 
 #openMap:hover {
-  background: #17a34a;        /* un verde un poco más oscuro */
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 22px rgba(34,197,94,0.45);
 }
 
 #openMap:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(34,197,94,0.35);
 }
 
-#openStoreMap {
-  display: inline-block;
-  margin-top: 6px;
-  padding: 6px 12px;
-  background: #1db954;
-  color: white;
-  border-radius: 18px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-}
 
-#openStoreMap:hover {
-  background: #17a34a;
-}
+
 .store-item {
   display: flex;
   align-items: center;
