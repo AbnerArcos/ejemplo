@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chef</title>
+<title>AbnerDev</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -17,7 +17,7 @@
 
 <div class="header">
   <img src="img/logo.png" class="logo">
-  <h1>Chef</h1>
+  <h1>AbnerDev</h1>
 </div>
 
 <div class="tabs">
@@ -37,10 +37,10 @@
 <div class="card special-product"
      data-name="Empanadas de pastor"
      data-options='[
-       {"label":"1 x","price":25},
-       {"label":"2 x","price":50},
-       {"label":"3 x","price":75},
-	   {"label":"4 x","price":100}
+       {"label":"1","price":25},
+       {"label":"2","price":50},
+       {"label":"3","price":75},
+	   {"label":"4","price":100}
      ]'>
 
   <div class="img-container">
@@ -61,10 +61,10 @@
 <div class="card special-product"
      data-name="Empanadas de molida"
      data-options='[
-       {"label":"1 x","price":25},
-       {"label":"2 x","price":50},
-       {"label":"3 x","price":75},
-	   {"label":"4 x","price":100}
+       {"label":"1","price":25},
+       {"label":"2","price":50},
+       {"label":"3","price":75},
+	   {"label":"4","price":100}
      ]'>
 
   <div class="img-container">
@@ -85,10 +85,10 @@
 <div class="card special-product"
      data-name="Empanada de queso"
      data-options='[
-       {"label":"1 x","price":25},
-       {"label":"2 x","price":50},
-       {"label":"3 x","price":75},
-	   {"label":"4 x","price":100}
+       {"label":"1","price":25},
+       {"label":"2","price":50},
+       {"label":"3","price":75},
+	   {"label":"4","price":100}
      ]'>
 
   <div class="img-container">
@@ -109,10 +109,10 @@
 <div class="card special-product"
      data-name="Empanada de pollo"
      data-options='[
-       {"label":"1 x","price":25},
-       {"label":"2 x","price":50},
-       {"label":"3 x","price":75},
-	   {"label":"4 x","price":100}
+       {"label":"1","price":25},
+       {"label":"2","price":50},
+       {"label":"3","price":75},
+	   {"label":"4","price":100}
      ]'>
 
   <div class="img-container">
@@ -141,10 +141,10 @@
 <div class="card special-product"
      data-name="Panuchos de molida"
      data-options='[
-       {"label":"1 x","price":20},
-       {"label":"2 x","price":40},
-       {"label":"3 x","price":60},
-	   {"label":"4 x","price":80}
+       {"label":"1","price":20},
+       {"label":"2","price":40},
+       {"label":"3","price":60},
+	   {"label":"4","price":80}
      ]'>
 
   <div class="img-container">
@@ -165,10 +165,10 @@
 <div class="card special-product"
      data-name="Panuchos de pollo"
      data-options='[
-       {"label":"1 x","price":20},
-       {"label":"2 x","price":40},
-       {"label":"3 x","price":60},
-	   {"label":"4 x","price":80}
+       {"label":"1","price":20},
+       {"label":"2","price":40},
+       {"label":"3","price":60},
+	   {"label":"4","price":80}
      ]'>
 
   <div class="img-container">
@@ -198,10 +198,10 @@
 <div class="card special-product"
      data-name="Tranca de pastor"
      data-options='[
-       {"label":"1 x","price":55},
-       {"label":"2 x","price":110},
-       {"label":"3 x","price":165},
-	   {"label":"4 x","price":220}
+       {"label":"1","price":55},
+       {"label":"2","price":110},
+       {"label":"3","price":165},
+	   {"label":"4","price":220}
      ]'>
 
   <div class="img-container">
@@ -222,10 +222,10 @@
 <div class="card special-product"
      data-name="Tranca de pollo"
      data-options='[
-       {"label":"1 x","price":55},
-       {"label":"2 x","price":110},
-       {"label":"3 x","price":165},
-	   {"label":"4 x","price":220}
+       {"label":"1","price":55},
+       {"label":"2","price":110},
+       {"label":"3","price":165},
+	   {"label":"4","price":220}
      ]'>
 
   <div class="img-container">
@@ -338,23 +338,6 @@
       📍 Ver ubicación
     </a>
   </div>
-
-  <div class="store-item">
-    <label class="store-radio">
-      <input type="radio" name="pickupStore" value="Local 2">
-      <span class="store-name">Local de comida 2</span>
-    </label>
-
-    <span class="store-address">Avenida Lopez Portillo</span>
-
-    <a 
-      href="https://maps.app.goo.gl/XCX4o4yU1hf5gzMaA?g_st=ic"
-      target="_blank"
-      class="store-link"
-    >
-      📍 Ver ubicación
-    </a>
-  </div>
 	  
 </div>
 
@@ -382,8 +365,8 @@
   <div id="datos-transferencia">
     <div class="transfer-box">
       <p><strong>Banco:</strong> BBVA</p>
-      <p><strong>Clabe:</strong> 6454 1611 0442 3446</p>
-      <p><strong>Nombre:</strong> CHEF</p>
+      <p><strong>Clabe:</strong> 1111 2222 3333 4444</p>
+      <p><strong>Nombre:</strong> AbnerDev</p>
     </div>
   </div>
 </div>
@@ -416,35 +399,55 @@
 <div class="toast" id="toast">Producto agregado ✅</div>
 
 <!-- MODAL UNIVERSAL -->
-<div id="productModal" class="costilla-modal">
+<!-- MODAL PRODUCTO ESTILO APP -->
+<div id="productModal" class="product-modal">
 
-  <div class="costilla-content">
+  <div class="product-modal-content">
 
-    <h3 id="modalTitle">Seleccionar</h3>
+    <!-- BOTÓN CERRAR -->
+    <button id="modalCancel" class="modal-close">✕</button>
 
-    <div class="weight-controls">
-      <button id="modalMinus">−</button>
-      <span id="modalLabel">1</span>
-      <button id="modalPlus">+</button>
+    <!-- IMAGEN -->
+    <div class="modal-image-container">
+      <img id="modalImage" src="" alt="">
     </div>
 
-    <p id="modalPrice">$0.00</p>
+    <!-- INFO -->
+    <div class="modal-body">
 
-    <input 
-      type="text" 
-      id="modalComment"
-      placeholder="Agregar comentario (ej: sin cebolla)"
-      class="modal-comment"
-    />
+      <h2 id="modalTitle" class="modal-title"></h2>
 
-    <div class="modal-buttons">
-      <button id="modalCancel">Cancelar</button>
-      <button id="modalAdd">Agregar</button>
+      <p id="modalDescription" class="modal-description">
+        Delicioso platillo recién preparado.
+      </p>
+
+      <textarea
+        id="modalComment"
+        placeholder="Instrucciones especiales... (Ej: sin azúcar)"
+        class="modal-comment">
+      </textarea>
+
+    </div>
+
+    <!-- FOOTER FIJO -->
+    <div class="modal-footer">
+
+      <div class="quantity-control">
+        <button id="modalMinus">−</button>
+        <span id="modalLabel">1</span>
+        <button id="modalPlus">+</button>
+      </div>
+
+      <button id="modalAdd" class="add-to-cart-btn">
+        Agregar al carrito
+      </button>
+
     </div>
 
   </div>
 
 </div>
+
 
 <!-- MODAL MENSAJES -->
 <div id="customModal" class="custom-modal">
@@ -457,7 +460,7 @@
 
     <div class="custom-modal-buttons">
       <button id="customCancel">Cancelar</button>
-      <button id="customConfirm">Confirmar</button>
+      <button id="customConfirm">Confirmar y enviar</button>
     </div>
 
   </div>

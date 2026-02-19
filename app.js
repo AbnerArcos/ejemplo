@@ -201,7 +201,7 @@ if (sendOrderBtn) {
 	
 
     // ✅ AHORA SÍ: crear el mensaje primero
-    let msg = "🍔 CHEF\n";
+    let msg = "🍔 AbnerDev\n";
     msg += "Cliente: " + customerNameInput.value + "\n\n";
 
     for (let item in cart) {
@@ -552,12 +552,14 @@ if (closeMapBtn) {
 const productModal = document.getElementById("productModal");
 const modalTitle = document.getElementById("modalTitle");
 const modalLabel = document.getElementById("modalLabel");
-const modalPrice = document.getElementById("modalPrice");
 const modalMinus = document.getElementById("modalMinus");
 const modalPlus = document.getElementById("modalPlus");
 const modalAdd = document.getElementById("modalAdd");
 const modalCancel = document.getElementById("modalCancel");
 const modalComment = document.getElementById("modalComment");
+const modalImage = document.getElementById("modalImage");
+const modalDescription = document.getElementById("modalDescription");
+
 
 let currentOptions = [];
 let currentIndex = 0;
@@ -565,7 +567,6 @@ let currentProductName = "";
 
 function updateModalUI(){
   modalLabel.innerText = currentOptions[currentIndex].label;
-  modalPrice.innerText = "$" + currentOptions[currentIndex].price.toFixed(2);
 }
 
 document.querySelectorAll(".special-product").forEach(card => {
@@ -578,9 +579,14 @@ document.querySelectorAll(".special-product").forEach(card => {
 
     modalTitle.innerText = currentProductName;
     modalComment.value = "";
+	
+	modalImage.src = card.querySelector("img").src;
+	modalDescription.innerText = card.querySelector(".product-description").innerText;
+
 
     updateModalUI();
-    productModal.style.display = "flex";
+    productModal.classList.add("active");
+
 
   });
 
@@ -601,7 +607,7 @@ modalPlus.onclick = () => {
 };
 
 modalCancel.onclick = () => {
-  productModal.style.display = "none";
+  productModal.classList.remove("active");
 };
 
 modalAdd.onclick = () => {
@@ -609,19 +615,13 @@ modalAdd.onclick = () => {
   const selected = currentOptions[currentIndex];
   const comentario = modalComment.value.trim();
 
-  const confirmar = confirm(
-    `¿Agregar ${selected.label} de ${currentProductName}?`
-  );
-
-  if(!confirmar) return;
-
   let name = `${currentProductName} (${selected.label})`;
 
-  if(comentario){
+  if (comentario) {
     name += " - " + comentario;
   }
 
-  if(!cart[name]){
+  if (!cart[name]) {
     cart[name] = { qty: 0, price: selected.price };
   }
 
@@ -633,8 +633,9 @@ modalAdd.onclick = () => {
   updateCart();
   showToast();
 
-  productModal.style.display = "none";
+  productModal.classList.remove("active"); // 🔥 importante
 };
+
 
 function showCustomModal(title, bodyHTML, onConfirm){
 
