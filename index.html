@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Remolque Food Truck Profesional — Financiamiento Directo</title>
+<title>Remolques Food Truck — Tu negocio sobre ruedas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
 /* ─── VARIABLES ─────────────────────────────────────────────── */
@@ -20,9 +20,6 @@
   --text-3:#9a9a9e;
   --accent:#1a1a1a;
   --accent-hover:#3a3a3a;
-  --green:#16a34a;
-  --green-bg:#f0fdf4;
-  --green-border:#bbf7d0;
   --radius:14px;
   --radius-sm:9px;
   --font-display:'Figtree',sans-serif;
@@ -33,7 +30,6 @@
   --shadow-lg:0 16px 48px rgba(0,0,0,.13),0 4px 12px rgba(0,0,0,.06);
 }
 
-/* ─── RESET ─────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
@@ -66,15 +62,15 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   width:28px;height:28px;background:var(--accent);
   border-radius:7px;display:flex;align-items:center;justify-content:center;
 }
-.logo__mark svg{width:15px;height:15px;fill:#fff}
+.logo__mark svg{width:16px;height:16px;fill:#fff}
 .header__badge{
-  font-size:.8rem;color:var(--green);font-weight:600;
-  padding:5px 12px;border:1px solid var(--green-border);
-  border-radius:100px;background:var(--green-bg);
+  font-size:.8rem;color:var(--text-2);
+  padding:5px 12px;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);
 }
 
 /* ─── HERO ──────────────────────────────────────────────────── */
-.hero{padding:72px 0 80px}
+.hero{padding:64px 0 72px}
 .hero__inner{
   display:grid;grid-template-columns:1fr 1fr;
   gap:56px;align-items:center;
@@ -82,54 +78,49 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .hero__badge{
   display:inline-flex;align-items:center;gap:7px;
   font-size:.75rem;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--green);
-  background:var(--green-bg);border:1px solid var(--green-border);
+  text-transform:uppercase;color:var(--text-2);
+  background:var(--surface);border:1px solid var(--border);
   border-radius:100px;padding:5px 13px;margin-bottom:22px;
 }
 .hero__badge-dot{
   width:7px;height:7px;border-radius:50%;
-  background:var(--green);box-shadow:0 0 0 2px rgba(22,163,74,.25);
-  animation:pulse 2s infinite;
+  background:#f59e0b;box-shadow:0 0 0 2px rgba(245,158,11,.25);
 }
-@keyframes pulse{0%,100%{box-shadow:0 0 0 2px rgba(22,163,74,.25)}50%{box-shadow:0 0 0 5px rgba(22,163,74,.1)}}
 .hero__title{
-  font-family:var(--font-display);font-weight:800;
-  font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;
-  letter-spacing:-.03em;color:var(--text);margin-bottom:12px;
-}
-.hero__title em{font-style:normal;color:var(--text-2);font-weight:400}
-.hero__subtitle{
-  font-family:var(--font-display);font-weight:600;
-  font-size:clamp(1rem,2vw,1.2rem);color:var(--text-2);
-  margin-bottom:28px;line-height:1.4;
-}
-.hero__enganche{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#1a1a1a;color:#fff;
-  font-family:var(--font-display);font-size:.9rem;font-weight:600;
-  padding:10px 18px;border-radius:100px;margin-bottom:28px;
-}
-.hero__enganche svg{width:15px;height:15px;fill:#4ade80;flex-shrink:0}
-.hero__meta{
-  display:flex;gap:0;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);margin-bottom:32px;overflow:hidden;
-}
-.hero__meta-item{
-  flex:1;padding:16px 20px;
-  border-right:1px solid var(--border);
-}
-.hero__meta-item:last-child{border-right:none}
-.meta-label{
-  font-size:.72rem;font-weight:600;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--text-3);margin-bottom:5px;
-}
-.meta-value{
   font-family:var(--font-display);font-weight:700;
-  font-size:1.2rem;color:var(--text);line-height:1;
+  font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;
+  letter-spacing:-.02em;color:var(--text);margin-bottom:16px;
 }
-.meta-value--green{color:var(--green)}
-.hero__ctas{display:flex;gap:10px;flex-wrap:wrap}
+.hero__desc{
+  font-size:1.0625rem;color:var(--text-2);line-height:1.65;
+  margin-bottom:28px;max-width:440px;
+}
+.hero__features{
+  display:flex;flex-direction:column;gap:8px;
+  margin-bottom:28px;
+}
+.hero__feature{
+  display:flex;align-items:center;gap:10px;
+  font-size:.9rem;color:var(--text-2);
+}
+.hero__feature-check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--accent);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.hero__feature-check svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5;fill:none}
+
+.hero__price-tag{
+  display:inline-flex;align-items:baseline;gap:6px;
+  margin-bottom:28px;
+}
+.hero__price-from{font-size:.8rem;color:var(--text-3);font-weight:500}
+.hero__price-amount{
+  font-family:var(--font-display);font-weight:700;
+  font-size:2rem;color:var(--text);letter-spacing:-.02em;
+}
+.hero__price-currency{font-size:1rem;color:var(--text-2)}
+
 .hero__cta{
   display:inline-flex;align-items:center;gap:9px;
   background:var(--accent);color:#fff;
@@ -142,18 +133,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   background:var(--accent-hover);transform:translateY(-1px);
   box-shadow:0 6px 20px rgba(0,0,0,.2);
 }
-.hero__cta--wa{background:#16a34a}
-.hero__cta--wa:hover{background:#15803d}
 .hero__cta svg{width:17px;height:17px;stroke:#fff;stroke-width:2.2;fill:none;flex-shrink:0}
-.hero__cta--wa svg{stroke:none;fill:#fff}
-.hero__cta--outline{
-  background:transparent;color:var(--text);
-  border:1.5px solid var(--border-strong);box-shadow:none;
-}
-.hero__cta--outline:hover{background:var(--surface);box-shadow:var(--shadow-sm)}
-.hero__cta--outline svg{stroke:var(--text)}
 
-/* Imagen hero */
 .hero__image-wrap{position:relative}
 .hero__image-card{
   background:var(--surface);border:1px solid var(--border);
@@ -168,43 +149,79 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .hero__image-card:hover img{transform:scale(1.03)}
 .hero__image-card--empty{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:14px;color:var(--text-3);background:linear-gradient(135deg,#f5f5f4 0%,#e7e7e5 100%);
+  gap:14px;color:var(--text-3);background:var(--surface);
+  height:100%;
 }
-.hero__image-card--empty svg{width:64px;height:64px;stroke:var(--border-strong);stroke-width:1;fill:none}
-.hero__image-card--empty span{font-size:.875rem;color:var(--text-3);text-align:center;padding:0 24px}
+.hero__image-card--empty svg{width:48px;height:48px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+.hero__image-card--empty span{font-size:.875rem;color:var(--text-3)}
 .hero__image-tag{
-  position:absolute;bottom:16px;left:16px;right:16px;
+  position:absolute;bottom:16px;left:16px;
   background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.6);
-  border-radius:var(--radius-sm);padding:12px 16px;
-  display:flex;justify-content:space-between;align-items:center;
+  border-radius:var(--radius-sm);padding:10px 14px;
 }
-.hero__image-tag .tag-left .tag-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
-.hero__image-tag .tag-left .tag-price{font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--text);line-height:1}
-.hero__image-tag .tag-right{
-  background:var(--green);color:#fff;font-size:.72rem;font-weight:700;
-  padding:4px 10px;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;
-}
-
-/* ─── FINANCIAMIENTO BAND ───────────────────────────────────── */
-.finance-band{
-  background:var(--accent);color:#fff;
-  padding:20px 0;
-}
-.finance-band__inner{
-  display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;
-  text-align:center;
-}
-.finance-band__item{display:flex;align-items:center;gap:10px}
-.finance-band__item svg{width:18px;height:18px;stroke:#4ade80;stroke-width:2.2;fill:none;flex-shrink:0}
-.finance-band__item span{font-size:.9rem;font-weight:500;line-height:1.3}
-.finance-band__item strong{font-family:var(--font-display);font-weight:700}
-.finance-band__sep{width:1px;height:32px;background:rgba(255,255,255,.15)}
+.hero__image-tag .tag-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
+.hero__image-tag .tag-price{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--text);line-height:1}
 
 /* ─── DIVIDER ───────────────────────────────────────────────── */
 .divider{border:none;border-top:1px solid var(--border);margin:0}
 
-/* ─── SECTION BASE ──────────────────────────────────────────── */
+/* ─── PROMO ─────────────────────────────────────────────────── */
+.promo{padding:64px 0}
+.promo__card{
+  background:var(--text);
+  border-radius:20px;padding:48px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+  position:relative;overflow:hidden;
+}
+.promo__card::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:220px;height:220px;
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  pointer-events:none;
+}
+.promo__card::after{
+  content:'';position:absolute;
+  bottom:-80px;right:80px;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:rgba(255,255,255,.03);
+  pointer-events:none;
+}
+.promo__content{flex:1;position:relative;z-index:1}
+.promo__eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:12px;
+}
+.promo__title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.15;
+  letter-spacing:-.02em;color:#fff;margin-bottom:14px;
+}
+.promo__desc{
+  font-size:.9375rem;color:rgba(255,255,255,.65);
+  line-height:1.65;max-width:480px;
+}
+.promo__prices{
+  display:flex;flex-direction:column;gap:12px;flex-shrink:0;
+  position:relative;z-index:1;
+}
+.promo__price-item{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);padding:16px 24px;min-width:220px;
+}
+.promo__price-label{font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:6px}
+.promo__price-value{
+  font-family:var(--font-display);font-weight:700;font-size:1.5rem;
+  color:#fff;letter-spacing:-.01em;
+}
+.promo__price-sub{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:2px}
+
+/* ─── GALERÍA ───────────────────────────────────────────────── */
+.gallery{padding:72px 0}
 .section-eyebrow{
   font-size:.75rem;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--text-3);margin-bottom:10px;
@@ -212,225 +229,169 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .section-title{
   font-family:var(--font-display);font-weight:700;
   font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.02em;
-  color:var(--text);margin-bottom:14px;
+  color:var(--text);margin-bottom:40px;
 }
-.section-desc{
-  font-size:1rem;color:var(--text-2);line-height:1.65;
-  max-width:520px;margin-bottom:48px;
-}
-
-/* ─── PASOS ─────────────────────────────────────────────────── */
-.steps{padding:80px 0}
-.steps__grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.step-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius);padding:28px 24px;
-  display:flex;flex-direction:column;gap:16px;
-  box-shadow:var(--shadow-xs);
-  transition:border-color .2s,box-shadow .2s,transform .2s;
-  position:relative;overflow:hidden;
-}
-.step-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,#1a1a1a,transparent);
-  opacity:0;transition:opacity .2s;
-}
-.step-card:hover{
-  border-color:var(--border-strong);
-  box-shadow:var(--shadow-md);transform:translateY(-2px);
-}
-.step-card:hover::before{opacity:1}
-.step-card__icon{
-  width:40px;height:40px;border:1.5px solid var(--border);
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-  color:var(--text);background:var(--bg);
-}
-.step-card__icon svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
-.step-card__title{
-  font-family:var(--font-display);font-weight:600;
-  font-size:1.0625rem;color:var(--text);line-height:1.25;
-}
-.step-card__desc{
-  font-size:.875rem;color:var(--text-2);line-height:1.6;flex:1;
-}
-.step-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  font-family:var(--font-display);font-weight:600;font-size:.8375rem;
-  padding:10px 18px;border-radius:var(--radius-sm);
-  border:1.5px solid var(--border-strong);
-  color:var(--text);background:var(--bg);
-  transition:background .18s,border-color .18s,color .18s;
-}
-.step-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
-.step-btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:2.2;fill:none;flex-shrink:0;transition:stroke .18s}
-.step-btn--wa{border-color:var(--green);color:var(--green)}
-.step-btn--wa:hover{background:var(--green);border-color:var(--green);color:#fff}
-.step-btn--wa svg{stroke:none;fill:currentColor}
-
-/* ─── CARACTERÍSTICAS ───────────────────────────────────────── */
-.features{padding:80px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.features__grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
-}
-.feature-item{
-  background:var(--surface);padding:28px 28px;
-  display:flex;gap:16px;align-items:flex-start;
-  transition:background .2s;
-}
-.feature-item:hover{background:var(--bg)}
-.feature-item__icon{
-  flex-shrink:0;width:36px;height:36px;
-  border:1px solid var(--border);border-radius:9px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--text);margin-top:1px;background:var(--bg);
-  transition:background .2s,border-color .2s;
-}
-.feature-item:hover .feature-item__icon{background:var(--accent);border-color:var(--accent);color:#fff}
-.feature-item:hover .feature-item__icon svg{stroke:#fff}
-.feature-item__icon svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;transition:stroke .2s}
-.feature-item__text{font-size:.9rem;color:var(--text-2);line-height:1.6}
-.feature-item__text strong{color:var(--text);font-weight:600;display:block;margin-bottom:3px;font-size:.9rem}
-
-/* ─── GALERÍA ───────────────────────────────────────────────── */
-.gallery{padding:80px 0}
 .gallery__grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto auto;
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
 }
 .gallery__item{
   border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--border);
   background:var(--surface);
+  aspect-ratio:3/4;
   box-shadow:var(--shadow-xs);
-  aspect-ratio:4/3;position:relative;
-  transition:box-shadow .2s,transform .2s;
+  transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s;
 }
-.gallery__item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.gallery__item--big{
-  grid-column:span 2;
-  aspect-ratio:16/9;
+.gallery__item:hover{transform:translateY(-3px) scale(1.01);box-shadow:var(--shadow-md)}
+.gallery__item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
 }
-.gallery__item img{width:100%;height:100%;object-fit:cover}
+.gallery__item:hover img{transform:scale(1.06)}
 .gallery__item--empty{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;background:linear-gradient(135deg,#f5f5f4,#eaeae8);
+  gap:10px;
 }
-.gallery__item--empty svg{width:36px;height:36px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
-.gallery__item--empty span{font-size:.75rem;color:var(--text-3);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
-.gallery__label{
-  position:absolute;bottom:10px;left:10px;
-  background:rgba(255,255,255,.88);backdrop-filter:blur(8px);
-  border-radius:6px;padding:4px 10px;
-  font-size:.72rem;font-weight:600;color:var(--text-2);
-  letter-spacing:.04em;text-transform:uppercase;
-  border:1px solid rgba(255,255,255,.5);
+.gallery__item--empty svg{width:32px;height:32px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+.gallery__item--empty span{font-size:.75rem;color:var(--text-3);text-align:center;padding:0 12px}
+
+/* ─── CONFIGURADOR ──────────────────────────────────────────── */
+.config{padding:72px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.config__grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-bottom:48px;
 }
+.model-card{
+  background:var(--bg);border:2px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  cursor:pointer;
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+  position:relative;
+  user-select:none;
+}
+.model-card:hover{
+  border-color:var(--border-strong);
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
+}
+.model-card.selected{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(26,26,26,.12), var(--shadow-md);
+  transform:translateY(-3px);
+  background:var(--surface);
+}
+.model-card__check{
+  position:absolute;top:12px;right:12px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.7);
+  transition:opacity .2s,transform .2s cubic-bezier(.34,1.56,.64,1);
+  z-index:2;
+}
+.model-card.selected .model-card__check{opacity:1;transform:scale(1)}
+.model-card__check svg{width:13px;height:13px;stroke:#fff;stroke-width:2.5;fill:none}
+.model-card__img{
+  aspect-ratio:4/3;overflow:hidden;
+  background:var(--border);
+}
+.model-card__img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.model-card:hover .model-card__img img{transform:scale(1.05)}
+.model-card__img--empty{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);height:100%;
+}
+.model-card__img--empty svg{width:40px;height:40px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+.model-card__body{padding:18px 18px 20px}
+.model-card__name{
+  font-family:var(--font-display);font-weight:700;
+  font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-2);margin-bottom:6px;
+}
+.model-card.selected .model-card__name{color:var(--accent)}
+.model-card__price{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.375rem;color:var(--text);letter-spacing:-.01em;
+}
+
+/* ─── FORMULARIO ────────────────────────────────────────────── */
+.quote{padding:0 0 48px}
+.quote__inner{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--radius);padding:32px;
+}
+.quote__title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.25rem;color:var(--text);margin-bottom:6px;
+}
+.quote__sub{font-size:.875rem;color:var(--text-2);margin-bottom:24px}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;
+}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field--full{grid-column:1/-1}
+.form-label{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.form-input{
+  padding:11px 14px;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  font-family:var(--font-body);font-size:.9375rem;color:var(--text);
+  transition:border-color .18s,box-shadow .18s;
+  outline:none;
+}
+.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,26,26,.08)}
+.form-input::placeholder{color:var(--text-3)}
+.quote__alert{
+  display:none;
+  align-items:center;gap:8px;
+  font-size:.875rem;color:#b45309;font-weight:500;
+  background:#fef3c7;border:1px solid #fcd34d;
+  border-radius:var(--radius-sm);padding:10px 14px;
+  margin-bottom:14px;
+}
+.quote__alert.show{display:flex}
+.quote__alert svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0}
+.submit-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;
+  background:var(--accent);color:#fff;
+  font-family:var(--font-display);font-weight:600;font-size:.9375rem;
+  padding:14px 28px;border-radius:var(--radius-sm);
+  box-shadow:0 3px 14px rgba(0,0,0,.18);
+  transition:background .2s,transform .18s,box-shadow .18s;
+}
+.submit-btn:hover{
+  background:var(--accent-hover);transform:translateY(-1px);
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+.submit-btn svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
 
 /* ─── BENEFICIOS ────────────────────────────────────────────── */
-.benefits{padding:80px 0;background:var(--accent)}
-.benefits .section-eyebrow{color:rgba(255,255,255,.4)}
-.benefits .section-title{color:#fff}
-.benefits .section-desc{color:rgba(255,255,255,.6)}
+.benefits{padding:72px 0;border-top:1px solid var(--border)}
 .benefits__grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
 }
-.benefit-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:var(--radius);padding:28px;
-  display:flex;flex-direction:column;gap:12px;
-  transition:background .2s,border-color .2s;
+.benefit-item{
+  background:var(--surface);padding:24px 28px;
+  display:flex;gap:16px;align-items:flex-start;
 }
-.benefit-card:hover{
-  background:rgba(255,255,255,.09);
-  border-color:rgba(255,255,255,.2);
+.benefit-item__icon{
+  flex-shrink:0;width:32px;height:32px;
+  border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-2);margin-top:1px;
 }
-.benefit-card__icon{
-  width:40px;height:40px;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
-  border-radius:10px;display:flex;align-items:center;justify-content:center;
-}
-.benefit-card__icon svg{width:18px;height:18px;stroke:#4ade80;stroke-width:2;fill:none}
-.benefit-card__title{
-  font-family:var(--font-display);font-weight:600;
-  font-size:1.0625rem;color:#fff;
-}
-.benefit-card__desc{font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.6}
-
-/* ─── FAQ ───────────────────────────────────────────────────── */
-.faq{padding:80px 0}
-.faq__list{display:flex;flex-direction:column;gap:0;max-width:700px}
-.faq__item{
-  border-bottom:1px solid var(--border);
-}
-.faq__q{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:16px;padding:20px 0;cursor:pointer;
-  font-family:var(--font-display);font-weight:600;font-size:1rem;
-  color:var(--text);list-style:none;user-select:none;
-  transition:color .18s;
-}
-.faq__q:hover{color:var(--text-2)}
-.faq__q-icon{
-  flex-shrink:0;width:28px;height:28px;border:1px solid var(--border);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  transition:transform .3s,background .18s,border-color .18s;
-}
-.faq__q-icon svg{width:13px;height:13px;stroke:var(--text-2);stroke-width:2.2;fill:none;transition:stroke .18s}
-.faq__item.open .faq__q-icon{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
-.faq__item.open .faq__q-icon svg{stroke:#fff}
-.faq__a{
-  max-height:0;overflow:hidden;
-  transition:max-height .35s cubic-bezier(.16,1,.3,1),padding .35s;
-}
-.faq__item.open .faq__a{max-height:300px;padding-bottom:20px}
-.faq__a p{font-size:.9375rem;color:var(--text-2);line-height:1.7}
-
-/* ─── CTA FINAL ─────────────────────────────────────────────── */
-.cta-final{padding:80px 0;text-align:center}
-.cta-final__inner{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:20px;padding:56px 40px;
-  box-shadow:var(--shadow-md);max-width:620px;margin:0 auto;
-}
-.cta-final__title{
-  font-family:var(--font-display);font-weight:800;
-  font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.03em;
-  color:var(--text);margin-bottom:12px;
-}
-.cta-final__desc{font-size:1rem;color:var(--text-2);line-height:1.65;margin-bottom:32px}
-.cta-final__price{
-  display:flex;align-items:baseline;justify-content:center;gap:6px;
-  margin-bottom:32px;
-}
-.cta-final__price .total{font-size:.875rem;color:var(--text-3);font-weight:500}
-.cta-final__price .amount{
-  font-family:var(--font-display);font-weight:800;font-size:2.5rem;
-  letter-spacing:-.04em;color:var(--text);
-}
-.cta-final__price .from{
-  font-size:.875rem;color:var(--green);font-weight:600;
-  background:var(--green-bg);border:1px solid var(--green-border);
-  border-radius:100px;padding:3px 10px;
-}
-.cta-wa{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--green);color:#fff;
-  font-family:var(--font-display);font-weight:700;font-size:1.0625rem;
-  padding:16px 36px;border-radius:var(--radius-sm);
-  box-shadow:0 4px 18px rgba(22,163,74,.3);
-  transition:background .18s,transform .15s,box-shadow .18s;
-}
-.cta-wa:hover{background:#15803d;transform:translateY(-2px);box-shadow:0 8px 28px rgba(22,163,74,.35)}
-.cta-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.benefit-item__icon svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none}
+.benefit-item__text{font-size:.9rem;color:var(--text-2);line-height:1.6}
+.benefit-item__text strong{color:var(--text);font-weight:600;display:block;margin-bottom:3px;font-size:.9rem}
 
 /* ─── FOOTER ────────────────────────────────────────────────── */
 .footer{padding:36px 0;border-top:1px solid var(--border)}
@@ -449,20 +410,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .footer__link:hover{border-color:var(--border-strong);color:var(--text)}
 .footer__link svg{width:14px;height:14px;fill:currentColor}
 
-/* ─── WHATSAPP FLOTANTE ─────────────────────────────────────── */
-.wa-float{
-  position:fixed;bottom:24px;right:24px;z-index:100;
-  width:56px;height:56px;border-radius:50%;
-  background:var(--green);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(22,163,74,.45);
-  transition:transform .2s,box-shadow .2s;
-  animation:fadeInUp .6s .5s both;
-}
-.wa-float:hover{transform:scale(1.08);box-shadow:0 8px 30px rgba(22,163,74,.5)}
-.wa-float svg{width:28px;height:28px;fill:#fff}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
 /* ─── SCROLL REVEAL ─────────────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.on{opacity:1;transform:translateY(0)}
@@ -474,30 +421,23 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 @media(max-width:900px){
   .hero__inner{grid-template-columns:1fr;gap:36px}
   .hero__content{order:1}
-  .hero__image-wrap{order:0;max-width:400px;margin:0 auto;width:100%}
-  .steps__grid{grid-template-columns:1fr}
-  .features__grid{grid-template-columns:1fr 1fr}
+  .hero__image-wrap{order:0;max-width:360px;margin:0 auto;width:100%}
+  .config__grid{grid-template-columns:1fr}
   .benefits__grid{grid-template-columns:1fr}
-  .gallery__grid{grid-template-columns:1fr 1fr}
-  .gallery__item--big{grid-column:span 2}
+  .gallery__grid{grid-template-columns:repeat(2,1fr)}
+  .promo__card{flex-direction:column;padding:36px 28px}
+  .promo__prices{width:100%}
+  .promo__price-item{min-width:0}
 }
 @media(max-width:600px){
   .hero{padding:40px 0 56px}
-  .steps,.features,.gallery,.benefits,.faq,.cta-final{padding:56px 0}
-  .hero__meta{flex-direction:column;gap:0}
-  .hero__meta-item{border-right:none;border-bottom:1px solid var(--border)}
-  .hero__meta-item:last-child{border-bottom:none}
-  .hero__title{font-size:2.1rem}
+  .hero__title{font-size:2rem}
   .header__badge{display:none}
   .footer__inner{flex-direction:column;align-items:flex-start;gap:12px}
-  .finance-band__sep{display:none}
-  .finance-band__inner{gap:16px}
-  .features__grid{grid-template-columns:1fr}
-  .gallery__grid{grid-template-columns:1fr}
-  .gallery__item--big{grid-column:span 1;aspect-ratio:4/3}
-  .cta-final__inner{padding:36px 24px}
-  .hero__ctas{flex-direction:column}
-  .hero__cta{justify-content:center}
+  .form-grid{grid-template-columns:1fr}
+  .gallery__grid{grid-template-columns:repeat(2,1fr)}
+  .promo__card{padding:28px 20px}
+  .promo{padding:40px 0}
 }
 </style>
 </head>
@@ -508,11 +448,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <div class="header__inner">
     <div class="logo">
       <div class="logo__mark">
-        <svg viewBox="0 0 16 16"><path d="M1 10l2-6h10l2 6H1zm2 0v3a1 1 0 001 1h8a1 1 0 001-1v-3"/><circle cx="5" cy="13" r="1" fill="#aaa"/><circle cx="11" cy="13" r="1" fill="#aaa"/></svg>
+        <!-- Food truck icon -->
+        <svg viewBox="0 0 16 16"><path d="M1 10V7l2-5h9l2 5v3H1zM3 13a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm10 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
       </div>
       Food Truck MX
     </div>
-    <span class="header__badge">Entrega inmediata</span>
+    <span class="header__badge">Desde $50,000 MXN</span>
   </div>
 </header>
 
@@ -525,389 +466,289 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
       <div class="hero__content">
         <div class="hero__badge reveal">
           <span class="hero__badge-dot"></span>
-          Financiamiento directo — sin banco
+          Disponible para apartar
         </div>
 
         <h1 class="hero__title reveal">
-          Remolque<br/>Food Truck<br/><em>Profesional</em>
+          Tu Food Truck<br/>listo para emprender
         </h1>
 
-        <p class="hero__subtitle reveal">
-          Empieza tu negocio de comida hoy mismo.<br/>Llévatelo con solo el 50% de enganche.
+        <p class="hero__desc reveal">
+          Fabricamos remolques Food Truck profesionales. Aparta con el 50% y paga el resto poco a poco.
         </p>
 
-        <div class="hero__enganche reveal">
-          <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm3.354-9.646a.5.5 0 010 .707L7.207 10.207a.5.5 0 01-.707 0L4.646 8.354a.5.5 0 11.707-.707l1.5 1.5 3.793-3.793a.5.5 0 01.708 0z"/></svg>
-          Llévatelo hoy con solo $30,000 de enganche
-        </div>
-
-        <div class="hero__meta reveal">
-          <div class="hero__meta-item">
-            <div class="meta-label">Precio total</div>
-            <div class="meta-value">$60,000 MXN</div>
+        <div class="hero__features reveal">
+          <div class="hero__feature">
+            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Chasis reforzado
           </div>
-          <div class="hero__meta-item">
-            <div class="meta-label">Enganche (50%)</div>
-            <div class="meta-value meta-value--green">$30,000 MXN</div>
+          <div class="hero__feature">
+            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Conexión para batería externa
           </div>
-          <div class="hero__meta-item">
-            <div class="meta-label">Resto</div>
-            <div class="meta-value">A convenir</div>
+          <div class="hero__feature">
+            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Instalación eléctrica incluida
           </div>
-        </div>
-
-        <div class="hero__ctas reveal">
-          <a href="https://wa.me/529811064643?text=Hola,%20quiero%20información%20sobre%20el%20remolque%20Food%20Truck" class="hero__cta hero__cta--wa" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Solicitar información
-          </a>
-          <a href="#como-funciona" class="hero__cta hero__cta--outline">
-            Ver detalles
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Imagen -->
-      <div class="hero__image-wrap reveal" data-d="1">
-        <div class="hero__image-card">
-          <img
-            src="foodtruck.jpg"
-            alt="Remolque Food Truck Profesional"
-            onerror="
-              this.closest('.hero__image-card').classList.add('hero__image-card--empty');
-              this.outerHTML='<svg viewBox=\'0 0 120 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'4\' y=\'28\' width=\'96\' height=\'44\' rx=\'6\' stroke=\'#d0d0cc\' stroke-width=\'2\'/><path d=\'M4 40h96\' stroke=\'#d0d0cc\' stroke-width=\'1.5\'/><rect x=\'16\' y=\'44\' width=\'28\' height=\'20\' rx=\'2\' stroke=\'#d0d0cc\' stroke-width=\'1.5\'/><rect x=\'60\' y=\'44\' width=\'28\' height=\'20\' rx=\'2\' stroke=\'#d0d0cc\' stroke-width=\'1.5\'/><circle cx=\'24\' cy=\'74\' r=\'8\' stroke=\'#d0d0cc\' stroke-width=\'2\'/><circle cx=\'76\' cy=\'74\' r=\'8\' stroke=\'#d0d0cc\' stroke-width=\'2\'/><path d=\'M100 40V20a4 4 0 00-4-4H24a4 4 0 00-4 4v8\' stroke=\'#d0d0cc\' stroke-width=\'1.5\'/><path d=\'M52 16v12\' stroke=\'#d0d0cc\' stroke-width=\'1.5\'/><span>Agrega tu foto del remolque</span></svg><span>Agrega la foto de tu remolque Food Truck aquí</span>';
-            "
-          />
-          <div class="hero__image-tag">
-            <div class="tag-left">
-              <div class="tag-label">Precio total</div>
-              <div class="tag-price">$60,000 MXN</div>
-            </div>
-            <div class="tag-right">Disponible</div>
+          <div class="hero__feature">
+            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Personalizable a tu medida
           </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BANDA FINANCIAMIENTO ══════════════════════════════════ -->
-<div class="finance-band">
-  <div class="wrap">
-    <div class="finance-band__inner">
-      <div class="finance-band__item">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <span><strong>Entrega inmediata</strong> el mismo día del enganche</span>
-      </div>
-      <div class="finance-band__sep"></div>
-      <div class="finance-band__item">
-        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        <span><strong>Sin banco ni buró</strong> — financiamiento directo</span>
-      </div>
-      <div class="finance-band__sep"></div>
-      <div class="finance-band__item">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <span><strong>Pagos flexibles</strong> acordados contigo</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider"/>
-
-<!-- ═══ CÓMO FUNCIONA ═════════════════════════════════════════ -->
-<section class="steps" id="como-funciona">
-  <div class="wrap">
-    <p class="section-eyebrow reveal">Proceso</p>
-    <h2 class="section-title reveal">Así de fácil es adquirirlo</h2>
-    <p class="section-desc reveal">Sin papeleo bancario, sin trámites complicados. Solo tres pasos y el remolque es tuyo.</p>
-
-    <div class="steps__grid">
-
-      <div class="step-card reveal" data-d="1">
-        <div class="step-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <div class="hero__price-tag reveal">
+          <span class="hero__price-from">Desde</span>
+          <span class="hero__price-amount">$50,000</span>
+          <span class="hero__price-currency">MXN</span>
         </div>
-        <div class="step-card__title">Aparta tu remolque</div>
-        <p class="step-card__desc">
-          Contáctanos por WhatsApp para apartar el remolque. Te damos todos los detalles y resolvemos tus dudas antes de cualquier compromiso.
-        </p>
-        <a href="https://wa.me/529811064643?text=Hola,%20quiero%20apartar%20el%20remolque%20Food%20Truck" class="step-btn step-btn--wa" target="_blank" rel="noopener">
-          Apartar ahora
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-      </div>
 
-      <div class="step-card reveal" data-d="2">
-        <div class="step-card__icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <div class="step-card__title">Paga el enganche y llévatelo</div>
-        <p class="step-card__desc">
-          Con $30,000 MXN de enganche el remolque es tuyo el mismo día. Acordamos juntos los pagos restantes sin presiones.
-        </p>
-        <button class="step-btn" onclick="openModal()">
-          Ver datos de pago
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </button>
-      </div>
-
-      <div class="step-card reveal" data-d="3">
-        <div class="step-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="step-card__title">Paga el resto poco a poco</div>
-        <p class="step-card__desc">
-          Los $30,000 MXN restantes se liquidan mediante pagos acordados directamente contigo. Sin intereses abusivos, sin bancos.
-        </p>
-        <a href="https://wa.me/529811064643?text=Quiero%20saber%20m%C3%A1s%20sobre%20las%20mensualidades" class="step-btn" target="_blank" rel="noopener">
-          Preguntar sobre pagos
+        <a href="#configurar" class="hero__cta reveal">
+          Configurar mi remolque
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
+      <!-- Imagen -->
+      <div class="hero__image-wrap reveal" data-d="1">
+        <div class="hero__image-card" id="hero-img-card">
+          <img
+            src="foodtruck1.jpg"
+            alt="Remolque Food Truck profesional"
+            onerror="
+              var c = this.closest('.hero__image-card');
+              c.classList.add('hero__image-card--empty');
+              c.innerHTML = '<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/><rect x=\'12\' y=\'24\' width=\'10\' height=\'8\' rx=\'1\'/></svg><span>Agrega la foto del remolque</span><div class=\'hero__image-tag\'><div class=\'tag-label\'>Precio desde</div><div class=\'tag-price\'>$50,000 MXN</div></div>';
+            "
+          />
+          <div class="hero__image-tag">
+            <div class="tag-label">Precio desde</div>
+            <div class="tag-price">$50,000 MXN</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <hr class="divider"/>
 
-<!-- ═══ CARACTERÍSTICAS ═══════════════════════════════════════ -->
-<section class="features" id="caracteristicas">
+<!-- ═══ PROMOCIÓN ════════════════════════════════════════════ -->
+<section class="promo">
   <div class="wrap">
-    <p class="section-eyebrow reveal">Especificaciones</p>
-    <h2 class="section-title reveal">Lo que incluye el remolque</h2>
-    <p class="section-desc reveal">Equipado y listo para operar desde el primer día. Apto para cualquier concepto de comida.</p>
-
-    <div class="features__grid reveal">
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V8l8-6 8 6v12"/><path d="M10 20v-6h4v6"/></svg>
+    <div class="promo__card reveal">
+      <div class="promo__content">
+        <p class="promo__eyebrow">🔥 Tiempo limitado</p>
+        <h2 class="promo__title">Promoción Especial</h2>
+        <p class="promo__desc">
+          Obtén tu remolque hoy mismo pagando únicamente el 50% de anticipo y liquida el resto en pagos cómodos, sin complicaciones.
+        </p>
+      </div>
+      <div class="promo__prices reveal" data-d="1">
+        <div class="promo__price-item">
+          <p class="promo__price-label">Precio total desde</p>
+          <p class="promo__price-value">$50,000 MXN</p>
+          <p class="promo__price-sub">modelo básico</p>
         </div>
-        <div class="feature-item__text">
-          <strong>Estructura reforzada</strong>
-          Armazón metálico resistente, diseñado para soportar operación diaria en exteriores.
+        <div class="promo__price-item">
+          <p class="promo__price-label">Anticipo desde</p>
+          <p class="promo__price-value">$25,000 MXN</p>
+          <p class="promo__price-sub">50% para apartar</p>
         </div>
       </div>
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-        </div>
-        <div class="feature-item__text">
-          <strong>Espacio amplio de trabajo</strong>
-          Diseño interior optimizado para moverse con comodidad y atender múltiples pedidos.
-        </div>
-      </div>
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="feature-item__text">
-          <strong>Instalación eléctrica</strong>
-          Cableado listo para conectar tus equipos: plancha, freidora, cafetera, refrigeración y más.
-        </div>
-      </div>
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <div class="feature-item__text">
-          <strong>Personalizable</strong>
-          Adapta el diseño, colores y distribución interior a la identidad de tu negocio.
-        </div>
-      </div>
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="feature-item__text">
-          <strong>Entrega inmediata</strong>
-          Lo pagas, lo recoges. Sin esperas de semanas ni trámites que demoren tu negocio.
-        </div>
-      </div>
-
-      <div class="feature-item">
-        <div class="feature-item__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="feature-item__text">
-          <strong>Financiamiento directo</strong>
-          Sin aval, sin buró de crédito. Trato de persona a persona, con acuerdo claro y por escrito.
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
+
+<hr class="divider"/>
 
 <!-- ═══ GALERÍA ═══════════════════════════════════════════════ -->
-<section class="gallery" id="galeria">
+<section class="gallery">
   <div class="wrap">
     <p class="section-eyebrow reveal">Galería</p>
-    <h2 class="section-title reveal">Conoce el remolque</h2>
-    <p class="section-desc reveal">Cada detalle fue pensado para que puedas operar con eficiencia desde el primer día.</p>
-
-    <div class="gallery__grid reveal">
-
-      <div class="gallery__item gallery__item--big gallery__item--empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Vista exterior del remolque</span>
-        <span class="gallery__label">Exterior</span>
+    <h2 class="section-title reveal">Nuestros remolques</h2>
+    <div class="gallery__grid">
+      <div class="gallery__item reveal" data-d="1">
+        <img src="foodtruck1.jpg" alt="Remolque Food Truck 1"
+          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck1.jpg</span>';"/>
       </div>
-
-      <div class="gallery__item gallery__item--empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Interior</span>
-        <span class="gallery__label">Interior</span>
+      <div class="gallery__item reveal" data-d="2">
+        <img src="foodtruck2.jpg" alt="Remolque Food Truck 2"
+          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck2.jpg</span>';"/>
       </div>
-
-      <div class="gallery__item gallery__item--empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Zona de preparación</span>
-        <span class="gallery__label">Área de trabajo</span>
+      <div class="gallery__item reveal" data-d="3">
+        <img src="foodtruck3.jpg" alt="Remolque Food Truck 3"
+          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck3.jpg</span>';"/>
       </div>
-
-      <div class="gallery__item gallery__item--empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Instalación eléctrica</span>
-        <span class="gallery__label">Eléctrico</span>
+      <div class="gallery__item reveal" data-d="3">
+        <img src="foodtruck4.jpg" alt="Remolque Food Truck 4"
+          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck4.jpg</span>';"/>
       </div>
-
-      <div class="gallery__item gallery__item--empty">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Detalles de construcción</span>
-        <span class="gallery__label">Estructura</span>
-      </div>
-
     </div>
   </div>
 </section>
 
 <hr class="divider"/>
+
+<!-- ═══ CONFIGURADOR ══════════════════════════════════════════ -->
+<section class="config" id="configurar">
+  <div class="wrap">
+    <p class="section-eyebrow reveal">Modelos</p>
+    <h2 class="section-title reveal">Elige tu remolque</h2>
+
+    <div class="config__grid">
+
+      <!-- BÁSICO -->
+      <div class="model-card reveal" data-d="1" data-model="BÁSICO" data-price="$50,000 MXN" onclick="selectModel(this)">
+        <div class="model-card__check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="model-card__img" id="img-basico">
+          <img src="basico.jpg" alt="Modelo Básico"
+            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        </div>
+        <div class="model-card__body">
+          <p class="model-card__name">Básico</p>
+          <p class="model-card__price">$50,000 MXN</p>
+        </div>
+      </div>
+
+      <!-- EQUIPADO -->
+      <div class="model-card reveal" data-d="2" data-model="EQUIPADO" data-price="$60,000 MXN" onclick="selectModel(this)">
+        <div class="model-card__check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="model-card__img" id="img-equipado">
+          <img src="equipado.jpg" alt="Modelo Equipado"
+            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        </div>
+        <div class="model-card__body">
+          <p class="model-card__name">Equipado</p>
+          <p class="model-card__price">$60,000 MXN</p>
+        </div>
+      </div>
+
+      <!-- SÚPER EQUIPADO -->
+      <div class="model-card reveal" data-d="3" data-model="SUPER EQUIPADO" data-price="$70,000 MXN" onclick="selectModel(this)">
+        <div class="model-card__check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="model-card__img" id="img-super">
+          <img src="superequipado.jpg" alt="Modelo Súper Equipado"
+            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        </div>
+        <div class="model-card__body">
+          <p class="model-card__name">Súper Equipado</p>
+          <p class="model-card__price">$70,000 MXN</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─── FORMULARIO ─────────────────────────────────────── -->
+    <div class="quote">
+      <div class="quote__inner">
+        <h3 class="quote__title">Solicita tu cotización</h3>
+        <p class="quote__sub">Completa tus datos y te contactamos por WhatsApp de inmediato.</p>
+
+        <div class="quote__alert" id="model-alert">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Selecciona un modelo antes de continuar.
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label" for="f-nombre">Nombre</label>
+            <input class="form-input" id="f-nombre" type="text" placeholder="Tu nombre completo" autocomplete="name"/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-telefono">Teléfono</label>
+            <input class="form-input" id="f-telefono" type="tel" placeholder="10 dígitos" autocomplete="tel"/>
+          </div>
+          <div class="form-field form-field--full">
+            <label class="form-label" for="f-ciudad">Ciudad</label>
+            <input class="form-input" id="f-ciudad" type="text" placeholder="¿En qué ciudad estás?" autocomplete="address-level2"/>
+          </div>
+        </div>
+
+        <button class="submit-btn" onclick="sendQuote()">
+          Enviar Cotización por WhatsApp
+          <!-- WhatsApp icon -->
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ BENEFICIOS ════════════════════════════════════════════ -->
-<section class="benefits" id="beneficios">
+<section class="benefits">
   <div class="wrap">
-    <p class="section-eyebrow reveal">¿Por qué elegirnos?</p>
-    <h2 class="section-title reveal">Empieza a generar dinero esta semana</h2>
-    <p class="section-desc reveal">No necesitas todo el capital. Solo necesitas decisión.</p>
+    <p class="section-eyebrow reveal">Por qué elegirnos</p>
+    <h2 class="section-title reveal">Calidad que se nota</h2>
 
-    <div class="benefits__grid">
+    <div class="benefits__grid reveal">
 
-      <div class="benefit-card reveal" data-d="1">
-        <div class="benefit-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="benefit-card__title">Empieza tu negocio rápidamente</div>
-        <p class="benefit-card__desc">El mismo día que pagas el enganche puedes comenzar a operar. No más esperas de meses para tener tu propio negocio de comida.</p>
+        <div class="benefit-item__text">
+          <strong>Fabricación profesional</strong>
+          Construimos cada remolque con procesos industriales y control de calidad en cada etapa.
+        </div>
       </div>
 
-      <div class="benefit-card reveal" data-d="2">
-        <div class="benefit-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
-        <div class="benefit-card__title">Sin trámites bancarios</div>
-        <p class="benefit-card__desc">Olvídate del buró de crédito, avales y rechazos bancarios. El trato es directo entre personas, simple y con un acuerdo claro.</p>
+        <div class="benefit-item__text">
+          <strong>Materiales de alta calidad</strong>
+          Acero estructural, aluminio y acabados premium para una vida útil de décadas.
+        </div>
       </div>
 
-      <div class="benefit-card reveal" data-d="1">
-        <div class="benefit-card__icon">
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="benefit-item__text">
+          <strong>Entrega en todo México</strong>
+          Coordinamos el envío hasta la puerta de tu negocio sin importar el estado.
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="benefit-item__text">
+          <strong>Garantía de fabricación</strong>
+          Respaldamos la estructura y la instalación eléctrica con garantía escrita.
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="benefit-item__text">
+          <strong>Atención personalizada</strong>
+          Un asesor te acompaña desde la cotización hasta la entrega de tu remolque.
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <div class="benefit-item__icon">
           <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <div class="benefit-card__title">Recupera tu inversión más rápido</div>
-        <p class="benefit-card__desc">Un food truck bien ubicado puede generar entre $800 y $3,000 MXN diarios. Recuperas tu inversión en semanas, no en años.</p>
-      </div>
-
-      <div class="benefit-card reveal" data-d="2">
-        <div class="benefit-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <div class="benefit-item__text">
+          <strong>Financiamiento accesible</strong>
+          Aparta con el 50% y liquida el resto en pagos cómodos sin intereses.
         </div>
-        <div class="benefit-card__title">Ideal para emprendedores</div>
-        <p class="benefit-card__desc">Hamburguesas, tacos, hot dogs, snacks, café o lo que tú quieras. El remolque se adapta a cualquier concepto de negocio gastronómico.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══════════════════════════════════════════════════ -->
-<section class="faq" id="preguntas">
-  <div class="wrap--narrow">
-    <p class="section-eyebrow reveal">FAQ</p>
-    <h2 class="section-title reveal">Preguntas frecuentes</h2>
-    <p class="section-desc reveal">Todo lo que necesitas saber antes de decidirte.</p>
-
-    <div class="faq__list reveal">
-
-      <div class="faq__item">
-        <div class="faq__q" onclick="toggleFaq(this)">
-          ¿Puedo llevármelo con solo el 50% de pago?
-          <span class="faq__q-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </div>
-        <div class="faq__a"><p>Sí. Con el pago del enganche de $30,000 MXN (50% del precio total) el remolque es tuyo de inmediato. Te lo llevas ese mismo día y comienzas a operar cuando quieras. El saldo restante lo liquidamos en pagos acordados contigo.</p></div>
-      </div>
-
-      <div class="faq__item">
-        <div class="faq__q" onclick="toggleFaq(this)">
-          ¿Cómo se pagan los $30,000 restantes?
-          <span class="faq__q-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </div>
-        <div class="faq__a"><p>Los pagos restantes se acuerdan directamente entre nosotros antes de formalizar el trato. Podemos ajustar montos y fechas según tus posibilidades. Todo queda por escrito para que ambas partes estén protegidas. No cobramos intereses abusivos.</p></div>
-      </div>
-
-      <div class="faq__item">
-        <div class="faq__q" onclick="toggleFaq(this)">
-          ¿Dónde se realiza la entrega?
-          <span class="faq__q-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </div>
-        <div class="faq__a"><p>La entrega se realiza en Campeche, Campeche. Si estás en otra ciudad del estado o fuera del estado, contáctanos para coordinar la logística. En algunos casos podemos hacer arreglos especiales de traslado.</p></div>
-      </div>
-
-      <div class="faq__item">
-        <div class="faq__q" onclick="toggleFaq(this)">
-          ¿Qué incluye exactamente el remolque?
-          <span class="faq__q-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </div>
-        <div class="faq__a"><p>El remolque incluye estructura metálica reforzada, cubierta exterior, instalación eléctrica básica, espacio interior amplio para zona de preparación y atención al cliente, y ventana de servicio. Los equipos de cocina (plancha, freidora, etc.) pueden adquirirse por separado o consultarnos para paquetes adicionales.</p></div>
-      </div>
-
-      <div class="faq__item">
-        <div class="faq__q" onclick="toggleFaq(this)">
-          ¿Para qué tipos de negocio es apto?
-          <span class="faq__q-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-        </div>
-        <div class="faq__a"><p>Es ideal para hamburguesas, tacos, hot dogs, snacks, cafetería, jugos, postres y cualquier concepto de comida rápida o gourmet. El espacio interior es flexible y personalizable según tu giro de negocio.</p></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- ═══ CTA FINAL ═════════════════════════════════════════════ -->
-<section class="cta-final">
-  <div class="wrap">
-    <div class="cta-final__inner reveal">
-      <p class="section-eyebrow" style="text-align:center;margin-bottom:12px">Tu negocio empieza aquí</p>
-      <h2 class="cta-final__title">¿Listo para arrancar?</h2>
-      <p class="cta-final__desc">Escríbenos hoy y asegura tu remolque antes de que alguien más lo haga. La disponibilidad es limitada.</p>
-      <div class="cta-final__price">
-        <span class="total">Precio total</span>
-        <span class="amount">$60,000</span>
-        <span class="from">desde $30,000 de enganche</span>
-      </div>
-      <a href="https://wa.me/529811064643?text=Hola,%20me%20interesa%20el%20remolque%20Food%20Truck.%20%C2%BFSigue%20disponible?" class="cta-wa" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Quiero mi Food Truck
-      </a>
     </div>
   </div>
 </section>
@@ -920,11 +761,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
         &copy; <span id="yr"></span> Food Truck MX. Todos los derechos reservados.
       </span>
       <div class="footer__links">
-        <a href="https://www.tiktok.com/@glakhits?_r=1&_t=ZS-96pfnD0ldNw" class="footer__link" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
-          TikTok
-        </a>
-        <a href="https://wa.me/9811064643" class="footer__link" target="_blank" rel="noopener">
+        <a href="https://wa.me/529811064643" class="footer__link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
@@ -933,158 +770,68 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   </div>
 </footer>
 
-<!-- ═══ WHATSAPP FLOTANTE ═════════════════════════════════════ -->
-<a href="https://wa.me/529811064643?text=Hola,%20me%20interesa%20el%20remolque%20Food%20Truck" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- ═══ MODAL DE PAGO ═════════════════════════════════════════ -->
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-  <div class="modal">
-    <div class="modal-inner">
-      <div class="modal__head">
-        <div class="modal__head-text">
-          <p class="eyebrow">Transferencia bancaria</p>
-          <h2 id="modal-title">Datos de pago</h2>
-        </div>
-        <button class="modal__close" onclick="closeModal()" aria-label="Cerrar">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-
-      <div class="modal__body">
-        <div class="pay-row">
-          <span class="pay-row__label">Banco</span>
-          <span class="pay-row__val" id="d-banco">BANAMEX</span>
-        </div>
-        <div class="pay-row">
-          <span class="pay-row__label">Titular</span>
-          <span class="pay-row__val" id="d-titular">Abner Alexander del Jordan Arcos Acosta</span>
-        </div>
-        <div class="pay-row">
-          <span class="pay-row__label">CLABE</span>
-          <span class="pay-row__val" id="d-clabe">002050905306465476</span>
-        </div>
-        <div class="pay-row">
-          <span class="pay-row__label">Monto</span>
-          <span class="pay-row__val" id="d-monto">$30,000 MXN (enganche 50%)</span>
-        </div>
-        <div class="pay-row">
-          <span class="pay-row__label">Concepto</span>
-          <span class="pay-row__val" id="d-concepto">Tu nombre + Food Truck</span>
-        </div>
-
-        <button class="modal__cta" onclick="copyData()">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          Copiar todos los datos
-        </button>
-      </div>
-
-      <div class="modal__toast" id="toast">Datos copiados al portapapeles ✓</div>
-    </div>
-  </div>
-</div>
-
-<!-- ─── MODAL CSS (mismo del original) ───────────────────────── -->
-<style>
-.overlay{
-  position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,.45);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  display:flex;align-items:flex-end;justify-content:center;
-  opacity:0;pointer-events:none;
-  transition:opacity .25s;padding:0;
-}
-@media(min-width:600px){.overlay{align-items:center;padding:20px}}
-.overlay.open{opacity:1;pointer-events:all}
-.modal{
-  background:var(--surface);width:100%;max-width:460px;
-  border-radius:20px 20px 0 0;border:1px solid var(--border);
-  box-shadow:var(--shadow-lg);
-  transform:translateY(30px);
-  transition:transform .3s cubic-bezier(.16,1,.3,1);
-  overflow:hidden;
-}
-@media(min-width:600px){.modal{border-radius:20px;transform:translateY(12px) scale(.97)}}
-.overlay.open .modal{transform:translateY(0) scale(1)}
-.modal__head{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:space-between}
-.modal__head-text .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px}
-.modal__head-text h2{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--text)}
-.modal__close{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-2);transition:background .15s,color .15s;flex-shrink:0}
-.modal__close:hover{background:var(--bg);color:var(--text)}
-.modal__close svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.2;fill:none}
-.modal__body{padding:20px 24px 24px;display:flex;flex-direction:column;gap:8px}
-.pay-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:var(--radius-sm);background:var(--bg);border:1px solid var(--border);gap:12px}
-.pay-row__label{font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-3);white-space:nowrap;flex-shrink:0}
-.pay-row__val{font-family:var(--font-display);font-size:.9rem;font-weight:600;color:var(--text);text-align:right}
-.modal__cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:4px;padding:13px;background:var(--accent);color:#fff;font-family:var(--font-display);font-weight:600;font-size:.9rem;border-radius:var(--radius-sm);transition:background .18s,transform .15s;cursor:pointer;border:none}
-.modal__cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
-.modal__cta svg{width:16px;height:16px;stroke:#fff;stroke-width:2.2;fill:none;flex-shrink:0}
-.modal__toast{position:absolute;bottom:0;left:0;right:0;background:var(--green);color:#fff;text-align:center;font-size:.875rem;font-weight:500;padding:11px;transform:translateY(100%);transition:transform .25s cubic-bezier(.16,1,.3,1)}
-.modal__toast.show{transform:translateY(0)}
-.modal-inner{position:relative;overflow:hidden}
-</style>
-
 <!-- ═══ JS ════════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
+// Año footer
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// Scroll reveal
+// ── Scroll reveal ──────────────────────────────────────────
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+  });
 }, { rootMargin:'0px 0px -50px 0px', threshold:.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Modal
-const overlay = document.getElementById('overlay');
-function openModal(){
-  overlay.classList.add('open');
-  overlay.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  overlay.classList.remove('open');
-  overlay.setAttribute('aria-hidden','true');
-  document.body.style.overflow='';
-}
-overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
-window.openModal = openModal;
-window.closeModal = closeModal;
+// ── Selección de modelo ────────────────────────────────────
+let selectedModel = null;
+let selectedPrice = null;
 
-// Copiar datos
-function copyData(){
-  const lines = [
-    'Banco: ' + document.getElementById('d-banco').textContent,
-    'Titular: ' + document.getElementById('d-titular').textContent,
-    'CLABE: ' + document.getElementById('d-clabe').textContent,
-    'Monto: ' + document.getElementById('d-monto').textContent,
-    'Concepto: ' + document.getElementById('d-concepto').textContent,
+function selectModel(card) {
+  // Deselect all
+  document.querySelectorAll('.model-card').forEach(c => c.classList.remove('selected'));
+  // Select clicked
+  card.classList.add('selected');
+  selectedModel = card.dataset.model;
+  selectedPrice = card.dataset.price;
+  // Hide alert if visible
+  document.getElementById('model-alert').classList.remove('show');
+}
+window.selectModel = selectModel;
+
+// ── Envío por WhatsApp ─────────────────────────────────────
+function sendQuote() {
+  // Validate model selected
+  if (!selectedModel) {
+    const alert = document.getElementById('model-alert');
+    alert.classList.add('show');
+    alert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const nombre   = document.getElementById('f-nombre').value.trim();
+  const telefono = document.getElementById('f-telefono').value.trim();
+  const ciudad   = document.getElementById('f-ciudad').value.trim();
+
+  const msg = [
+    'Hola, me interesa cotizar un remolque Food Truck.',
+    '',
+    `Modelo seleccionado: ${selectedModel}`,
+    `Precio del modelo: ${selectedPrice}`,
+    '',
+    `Nombre: ${nombre || '(no indicado)'}`,
+    `Teléfono: ${telefono || '(no indicado)'}`,
+    `Ciudad: ${ciudad || '(no indicada)'}`,
+    '',
+    'Me gustaría recibir más información.'
   ].join('\n');
-  const toast = document.getElementById('toast');
-  const show = () => { toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 2200); };
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(lines).then(show).catch(()=>{ legacyCopy(lines); show(); });
-  } else { legacyCopy(lines); show(); }
-}
-function legacyCopy(text){
-  const t = document.createElement('textarea');
-  t.value=text; t.style.cssText='position:fixed;opacity:0';
-  document.body.appendChild(t); t.select();
-  document.execCommand('copy'); document.body.removeChild(t);
-}
-window.copyData = copyData;
 
-// FAQ accordion
-function toggleFaq(el){
-  const item = el.closest('.faq__item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq__item.open').forEach(i => i.classList.remove('open'));
-  if(!isOpen) item.classList.add('open');
+  const url = 'https://wa.me/529811064643?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
 }
-window.toggleFaq = toggleFaq;
+window.sendQuote = sendQuote;
 </script>
 </body>
 </html>
