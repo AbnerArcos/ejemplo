@@ -67,20 +67,75 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   font-size:.8rem;color:var(--text-2);
   padding:5px 12px;border:1px solid var(--border);
   border-radius:100px;background:var(--surface);
+  font-family:var(--font-display);font-weight:600;
+  transition:color .25s,border-color .25s;
 }
 
-/* ─── HERO ──────────────────────────────────────────────────── */
-.hero{padding:64px 0 72px}
+/* ─── HERO / PRODUCTO ───────────────────────────────────────── */
+.hero{padding:48px 0 72px}
 .hero__inner{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:56px;align-items:center;
+  gap:56px;align-items:start;
 }
+
+/* ── Galería de imágenes ── */
+.gallery-wrap{position:relative}
+.gallery-main{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  aspect-ratio:4/5;position:relative;
+}
+.gallery-main__img{
+  width:100%;height:100%;object-fit:cover;
+  transition:opacity .35s ease, transform .6s cubic-bezier(.25,.46,.45,.94);
+  position:absolute;inset:0;
+}
+.gallery-main__img.fade-out{opacity:0}
+.gallery-main:hover .gallery-main__img{transform:scale(1.025)}
+.gallery-main--empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;color:var(--text-3);background:var(--surface);
+  height:100%;position:absolute;inset:0;
+}
+.gallery-main--empty svg{width:48px;height:48px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+.gallery-main--empty span{font-size:.875rem;color:var(--text-3)}
+.gallery-main__tag{
+  position:absolute;bottom:16px;left:16px;z-index:5;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:var(--radius-sm);padding:10px 14px;
+  transition:transform .3s ease;
+}
+.gallery-main__tag .tag-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
+.gallery-main__tag .tag-price{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--text);line-height:1;transition:opacity .2s}
+
+.gallery-thumbs{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;margin-top:12px;
+}
+.gallery-thumb{
+  aspect-ratio:1/1;border-radius:10px;overflow:hidden;
+  border:2px solid var(--border);cursor:pointer;
+  position:relative;background:var(--surface);
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.gallery-thumb:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.gallery-thumb.active{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,26,26,.08)}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-thumb--empty{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);height:100%;
+}
+.gallery-thumb--empty svg{width:22px;height:22px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+
+/* ── Contenido del producto ── */
 .hero__badge{
   display:inline-flex;align-items:center;gap:7px;
   font-size:.75rem;font-weight:600;letter-spacing:.06em;
   text-transform:uppercase;color:var(--text-2);
   background:var(--surface);border:1px solid var(--border);
-  border-radius:100px;padding:5px 13px;margin-bottom:22px;
+  border-radius:100px;padding:5px 13px;margin-bottom:18px;
 }
 .hero__badge-dot{
   width:7px;height:7px;border-radius:50%;
@@ -88,12 +143,91 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .hero__title{
   font-family:var(--font-display);font-weight:700;
-  font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;
-  letter-spacing:-.02em;color:var(--text);margin-bottom:16px;
+  font-size:clamp(2rem,4vw,3rem);line-height:1.1;
+  letter-spacing:-.02em;color:var(--text);margin-bottom:8px;
 }
+.hero__subtitle{
+  font-size:.95rem;color:var(--text-3);margin-bottom:24px;
+  transition:opacity .25s;
+}
+
+/* ── Selector de modelo (estilo Temu/Amazon) ── */
+.model-selector-label{
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:12px;
+}
+.model-selector-row{
+  display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;
+}
+.model-chip{
+  flex:1 1 0;min-width:0;
+  background:var(--surface);
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px 10px;
+  cursor:pointer;
+  position:relative;
+  user-select:none;
+  text-align:center;
+  transition:border-color .22s,box-shadow .22s,transform .22s,background .22s;
+}
+.model-chip:hover{
+  border-color:var(--border-strong);
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-1px);
+}
+.model-chip.selected{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(26,26,26,.1), var(--shadow-sm);
+  transform:translateY(-2px);
+  background:var(--surface);
+}
+.model-chip__check{
+  position:absolute;top:-8px;right:-8px;z-index:3;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.5);
+  transition:opacity .18s,transform .22s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+.model-chip.selected .model-chip__check{opacity:1;transform:scale(1)}
+.model-chip__check svg{width:12px;height:12px;stroke:#fff;stroke-width:2.8;fill:none}
+.model-chip__name{
+  font-family:var(--font-display);font-weight:700;
+  font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-2);margin-bottom:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.model-chip.selected .model-chip__name{color:var(--accent)}
+.model-chip__price{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1rem;color:var(--text);letter-spacing:-.01em;
+  white-space:nowrap;
+}
+
+/* ── Precio dinámico ── */
+.hero__price-block{
+  display:flex;align-items:flex-end;gap:24px;
+  margin-bottom:24px;padding:18px 20px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:box-shadow .25s;
+}
+.hero__price-item{display:flex;flex-direction:column;gap:2px}
+.hero__price-item-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.hero__price-item-value{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.7rem;color:var(--text);letter-spacing:-.02em;
+  transition:opacity .25s,transform .25s;
+}
+.hero__price-divider{width:1px;align-self:stretch;background:var(--border)}
+
+/* ── Descripción / features dinámicas ── */
 .hero__desc{
   font-size:1.0625rem;color:var(--text-2);line-height:1.65;
-  margin-bottom:28px;max-width:440px;
+  margin-bottom:22px;max-width:480px;
+  transition:opacity .25s;
 }
 .hero__features{
   display:flex;flex-direction:column;gap:8px;
@@ -102,6 +236,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .hero__feature{
   display:flex;align-items:center;gap:10px;
   font-size:.9rem;color:var(--text-2);
+  transition:opacity .25s;
 }
 .hero__feature-check{
   width:20px;height:20px;border-radius:50%;
@@ -110,16 +245,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .hero__feature-check svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5;fill:none}
 
-.hero__price-tag{
-  display:inline-flex;align-items:baseline;gap:6px;
-  margin-bottom:28px;
-}
-.hero__price-from{font-size:.8rem;color:var(--text-3);font-weight:500}
-.hero__price-amount{
-  font-family:var(--font-display);font-weight:700;
-  font-size:2rem;color:var(--text);letter-spacing:-.02em;
-}
-.hero__price-currency{font-size:1rem;color:var(--text-2)}
+.fade-content{transition:opacity .25s ease}
+.fade-content.fading{opacity:0}
 
 .hero__cta{
   display:inline-flex;align-items:center;gap:9px;
@@ -128,40 +255,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   padding:14px 28px;border-radius:var(--radius-sm);
   box-shadow:0 3px 14px rgba(0,0,0,.18);
   transition:background .2s,transform .18s,box-shadow .18s;
+  width:100%;justify-content:center;
 }
 .hero__cta:hover{
   background:var(--accent-hover);transform:translateY(-1px);
   box-shadow:0 6px 20px rgba(0,0,0,.2);
 }
-.hero__cta svg{width:17px;height:17px;stroke:#fff;stroke-width:2.2;fill:none;flex-shrink:0}
-
-.hero__image-wrap{position:relative}
-.hero__image-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:20px;overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  aspect-ratio:4/5;position:relative;
-}
-.hero__image-card img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
-}
-.hero__image-card:hover img{transform:scale(1.03)}
-.hero__image-card--empty{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:14px;color:var(--text-3);background:var(--surface);
-  height:100%;
-}
-.hero__image-card--empty svg{width:48px;height:48px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
-.hero__image-card--empty span{font-size:.875rem;color:var(--text-3)}
-.hero__image-tag{
-  position:absolute;bottom:16px;left:16px;
-  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.6);
-  border-radius:var(--radius-sm);padding:10px 14px;
-}
-.hero__image-tag .tag-label{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px}
-.hero__image-tag .tag-price{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--text);line-height:1}
+.hero__cta svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 
 /* ─── DIVIDER ───────────────────────────────────────────────── */
 .divider{border:none;border-top:1px solid var(--border);margin:0}
@@ -217,11 +317,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .promo__price-value{
   font-family:var(--font-display);font-weight:700;font-size:1.5rem;
   color:#fff;letter-spacing:-.01em;
+  transition:opacity .25s;
 }
 .promo__price-sub{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:2px}
 
-/* ─── GALERÍA ───────────────────────────────────────────────── */
-.gallery{padding:72px 0}
+/* ─── CONFIGURADOR / FORMULARIO ─────────────────────────────── */
+.config{padding:72px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .section-eyebrow{
   font-size:.75rem;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--text-3);margin-bottom:10px;
@@ -231,120 +332,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.02em;
   color:var(--text);margin-bottom:40px;
 }
-.gallery__grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-.gallery__item{
-  border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--border);
-  background:var(--surface);
-  aspect-ratio:3/4;
-  box-shadow:var(--shadow-xs);
-  transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s;
-}
-.gallery__item:hover{transform:translateY(-3px) scale(1.01);box-shadow:var(--shadow-md)}
-.gallery__item img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
-}
-.gallery__item:hover img{transform:scale(1.06)}
-.gallery__item--empty{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;
-}
-.gallery__item--empty svg{width:32px;height:32px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
-.gallery__item--empty span{font-size:.75rem;color:var(--text-3);text-align:center;padding:0 12px}
 
-/* ─── CONFIGURADOR ──────────────────────────────────────────── */
-.config{padding:72px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-
-/* Selector tipo Temu / Amazon */
-.model-selector-label{
-  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-3);margin-bottom:14px;
-}
-.model-selector-row{
-  display:flex;gap:12px;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  padding-bottom:4px;
-  margin-bottom:40px;
-}
-.model-selector-row::-webkit-scrollbar{display:none}
-
-.model-chip{
-  flex-shrink:0;
-  width:148px;
-  background:var(--bg);
-  border:2px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-  cursor:pointer;
-  position:relative;
-  user-select:none;
-  transition:border-color .22s,box-shadow .22s,transform .22s;
-}
-.model-chip:hover{
-  border-color:var(--border-strong);
-  box-shadow:var(--shadow-sm);
-  transform:translateY(-1px);
-}
-.model-chip.selected{
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(26,26,26,.1), var(--shadow-sm);
-  transform:translateY(-2px);
-  background:var(--surface);
-}
-
-/* checkmark */
-.model-chip__check{
-  position:absolute;top:7px;right:7px;z-index:3;
-  width:20px;height:20px;border-radius:50%;
-  background:var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(.5);
-  transition:opacity .18s,transform .22s cubic-bezier(.34,1.56,.64,1);
-  box-shadow:0 2px 6px rgba(0,0,0,.25);
-}
-.model-chip.selected .model-chip__check{opacity:1;transform:scale(1)}
-.model-chip__check svg{width:11px;height:11px;stroke:#fff;stroke-width:2.8;fill:none}
-
-/* foto */
-.model-chip__img{
-  width:100%;aspect-ratio:4/3;overflow:hidden;
-  background:var(--border);
-}
-.model-chip__img img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .45s cubic-bezier(.25,.46,.45,.94);
-}
-.model-chip:hover .model-chip__img img{transform:scale(1.07)}
-.model-chip__img--empty{
-  display:flex;align-items:center;justify-content:center;
-  background:var(--bg);height:100%;
-}
-.model-chip__img--empty svg{width:28px;height:28px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
-
-/* texto debajo */
-.model-chip__body{padding:10px 11px 12px}
-.model-chip__name{
-  font-family:var(--font-display);font-weight:700;
-  font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--text-2);margin-bottom:3px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.model-chip.selected .model-chip__name{color:var(--accent)}
-.model-chip__price{
-  font-family:var(--font-display);font-weight:700;
-  font-size:.975rem;color:var(--text);letter-spacing:-.01em;
-  white-space:nowrap;
-}
-
-/* ─── FORMULARIO ────────────────────────────────────────────── */
-.quote{padding:0 0 48px}
 .quote__inner{
   background:var(--bg);border:1px solid var(--border);
   border-radius:var(--radius);padding:32px;
@@ -353,7 +341,29 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   font-family:var(--font-display);font-weight:700;
   font-size:1.25rem;color:var(--text);margin-bottom:6px;
 }
-.quote__sub{font-size:.875rem;color:var(--text-2);margin-bottom:24px}
+.quote__sub{font-size:.875rem;color:var(--text-2);margin-bottom:16px}
+
+.quote__selected{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:20px;
+  transition:box-shadow .25s;
+}
+.quote__selected-info{display:flex;align-items:center;gap:12px}
+.quote__selected-icon{
+  width:38px;height:38px;border-radius:8px;background:var(--bg);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.quote__selected-icon svg{width:18px;height:18px;stroke:var(--text-2);stroke-width:2;fill:none}
+.quote__selected-name{font-family:var(--font-display);font-weight:700;font-size:.95rem;color:var(--text);transition:opacity .2s}
+.quote__selected-sub{font-size:.78rem;color:var(--text-3);transition:opacity .2s}
+.quote__selected-prices{display:flex;gap:18px}
+.quote__selected-price{text-align:right}
+.quote__selected-price-label{font-size:.7rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
+.quote__selected-price-value{font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--text);transition:opacity .2s}
+
 .form-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;
 }
@@ -371,16 +381,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,26,26,.08)}
 .form-input::placeholder{color:var(--text-3)}
-.quote__alert{
-  display:none;
-  align-items:center;gap:8px;
-  font-size:.875rem;color:#b45309;font-weight:500;
-  background:#fef3c7;border:1px solid #fcd34d;
-  border-radius:var(--radius-sm);padding:10px 14px;
-  margin-bottom:14px;
-}
-.quote__alert.show{display:flex}
-.quote__alert svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;flex-shrink:0}
+
 .submit-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   width:100%;
@@ -443,25 +444,29 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
 @media(max-width:900px){
-  .hero__inner{grid-template-columns:1fr;gap:36px}
+  .hero__inner{grid-template-columns:1fr;gap:32px}
   .hero__content{order:1}
-  .hero__image-wrap{order:0;max-width:360px;margin:0 auto;width:100%}
+  .gallery-wrap{order:0;max-width:420px;margin:0 auto;width:100%}
   .benefits__grid{grid-template-columns:1fr}
-  .gallery__grid{grid-template-columns:repeat(2,1fr)}
   .promo__card{flex-direction:column;padding:36px 28px}
   .promo__prices{width:100%}
   .promo__price-item{min-width:0}
 }
 @media(max-width:600px){
-  .hero{padding:40px 0 56px}
-  .hero__title{font-size:2rem}
+  .hero{padding:32px 0 56px}
+  .hero__title{font-size:1.9rem}
   .header__badge{display:none}
   .footer__inner{flex-direction:column;align-items:flex-start;gap:12px}
   .form-grid{grid-template-columns:1fr}
-  .gallery__grid{grid-template-columns:repeat(2,1fr)}
   .promo__card{padding:28px 20px}
   .promo{padding:40px 0}
-  .model-chip{width:130px}
+  .model-selector-row{gap:8px}
+  .model-chip{padding:10px 6px}
+  .model-chip__price{font-size:.9rem}
+  .hero__price-block{gap:16px;padding:14px 16px}
+  .hero__price-item-value{font-size:1.4rem}
+  .quote__selected{flex-direction:column;align-items:flex-start}
+  .quote__selected-prices{width:100%;justify-content:space-between}
 }
 </style>
 </head>
@@ -472,83 +477,80 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <div class="header__inner">
     <div class="logo">
       <div class="logo__mark">
-        <!-- Food truck icon -->
         <svg viewBox="0 0 16 16"><path d="M1 10V7l2-5h9l2 5v3H1zM3 13a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm10 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
       </div>
       Food Truck MX
     </div>
-    <span class="header__badge">Desde $50,000 MXN</span>
+    <span class="header__badge" id="header-badge">Desde $50,000 MXN</span>
   </div>
 </header>
 
-<!-- ═══ HERO ══════════════════════════════════════════════════ -->
+<!-- ═══ HERO / FICHA DE PRODUCTO ════════════════════════════════ -->
 <section class="hero">
   <div class="wrap">
     <div class="hero__inner">
 
-      <!-- Texto -->
+      <!-- ─── Galería de imágenes ─── -->
+      <div class="gallery-wrap reveal" data-d="1">
+        <div class="gallery-main" id="gallery-main">
+          <img class="gallery-main__img" id="gallery-main-img" src="" alt="Remolque Food Truck"
+            onerror="
+              this.style.display='none';
+              var c = document.getElementById('gallery-main');
+              if(!c.querySelector('.gallery-main--empty')){
+                var d = document.createElement('div');
+                d.className='gallery-main--empty';
+                d.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/><rect x=\'12\' y=\'24\' width=\'10\' height=\'8\' rx=\'1\'/></svg><span>Agrega las fotos del modelo</span>';
+                c.appendChild(d);
+              }
+            "/>
+          <div class="gallery-main__tag">
+            <div class="tag-label">Precio desde</div>
+            <div class="tag-price" id="tag-price">$50,000 MXN</div>
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="gallery-thumbs"></div>
+      </div>
+
+      <!-- ─── Contenido de producto ─── -->
       <div class="hero__content">
         <div class="hero__badge reveal">
           <span class="hero__badge-dot"></span>
           Disponible para apartar
         </div>
 
-        <h1 class="hero__title reveal">
-          Tu Food Truck<br/>listo para emprender
-        </h1>
+        <h1 class="hero__title reveal">Remolque Food Truck</h1>
+        <p class="hero__subtitle reveal" id="model-subtitle">Modelo Básico — listo para personalizar</p>
 
-        <p class="hero__desc reveal">
-          Fabricamos remolques Food Truck profesionales. Aparta con el 50% y paga el resto poco a poco.
+        <p class="model-selector-label reveal">Elige tu modelo</p>
+        <div class="model-selector-row reveal" data-d="1" id="model-selector-row">
+          <!-- chips generados por JS -->
+        </div>
+
+        <div class="hero__price-block reveal" data-d="1">
+          <div class="hero__price-item">
+            <span class="hero__price-item-label">Precio total</span>
+            <span class="hero__price-item-value" id="price-total">$50,000 MXN</span>
+          </div>
+          <div class="hero__price-divider"></div>
+          <div class="hero__price-item">
+            <span class="hero__price-item-label">Anticipo (50%)</span>
+            <span class="hero__price-item-value" id="price-anticipo">$25,000 MXN</span>
+          </div>
+        </div>
+
+        <p class="hero__desc fade-content reveal" data-d="2" id="model-desc">
+          El punto de entrada ideal para emprender. Estructura sólida, espacio optimizado y todo lo necesario para empezar a operar tu negocio sobre ruedas.
         </p>
 
-        <div class="hero__features reveal">
-          <div class="hero__feature">
-            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Chasis reforzado
-          </div>
-          <div class="hero__feature">
-            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Conexión para batería externa
-          </div>
-          <div class="hero__feature">
-            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Instalación eléctrica incluida
-          </div>
-          <div class="hero__feature">
-            <div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            Personalizable a tu medida
-          </div>
+        <div class="hero__features fade-content reveal" data-d="2" id="model-features">
+          <!-- features generadas por JS -->
         </div>
 
-        <div class="hero__price-tag reveal">
-          <span class="hero__price-from">Desde</span>
-          <span class="hero__price-amount">$50,000</span>
-          <span class="hero__price-currency">MXN</span>
-        </div>
-
-        <a href="#configurar" class="hero__cta reveal">
-          Configurar mi remolque
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <a href="#configurar" class="hero__cta reveal" data-d="3">
+          Solicitar cotización por WhatsApp
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
-      </div>
-
-      <!-- Imagen -->
-      <div class="hero__image-wrap reveal" data-d="1">
-        <div class="hero__image-card" id="hero-img-card">
-          <img
-            src="foodtruck1.jpg"
-            alt="Remolque Food Truck profesional"
-            onerror="
-              var c = this.closest('.hero__image-card');
-              c.classList.add('hero__image-card--empty');
-              c.innerHTML = '<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/><rect x=\'12\' y=\'24\' width=\'10\' height=\'8\' rx=\'1\'/></svg><span>Agrega la foto del remolque</span><div class=\'hero__image-tag\'><div class=\'tag-label\'>Precio desde</div><div class=\'tag-price\'>$50,000 MXN</div></div>';
-            "
-          />
-          <div class="hero__image-tag">
-            <div class="tag-label">Precio desde</div>
-            <div class="tag-price">$50,000 MXN</div>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -570,13 +572,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
       </div>
       <div class="promo__prices reveal" data-d="1">
         <div class="promo__price-item">
-          <p class="promo__price-label">Precio total desde</p>
-          <p class="promo__price-value">$50,000 MXN</p>
-          <p class="promo__price-sub">modelo básico</p>
+          <p class="promo__price-label">Precio total</p>
+          <p class="promo__price-value" id="promo-total">$50,000 MXN</p>
+          <p class="promo__price-sub" id="promo-model-name">modelo básico</p>
         </div>
         <div class="promo__price-item">
-          <p class="promo__price-label">Anticipo desde</p>
-          <p class="promo__price-value">$25,000 MXN</p>
+          <p class="promo__price-label">Anticipo</p>
+          <p class="promo__price-value" id="promo-anticipo">$25,000 MXN</p>
           <p class="promo__price-sub">50% para apartar</p>
         </div>
       </div>
@@ -586,99 +588,37 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 <hr class="divider"/>
 
-<!-- ═══ GALERÍA ═══════════════════════════════════════════════ -->
-<section class="gallery">
-  <div class="wrap">
-    <p class="section-eyebrow reveal">Galería</p>
-    <h2 class="section-title reveal">Nuestros remolques</h2>
-    <div class="gallery__grid">
-      <div class="gallery__item reveal" data-d="1">
-        <img src="foodtruck1.jpg" alt="Remolque Food Truck 1"
-          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck1.jpg</span>';"/>
-      </div>
-      <div class="gallery__item reveal" data-d="2">
-        <img src="foodtruck2.jpg" alt="Remolque Food Truck 2"
-          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck2.jpg</span>';"/>
-      </div>
-      <div class="gallery__item reveal" data-d="3">
-        <img src="foodtruck3.jpg" alt="Remolque Food Truck 3"
-          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck3.jpg</span>';"/>
-      </div>
-      <div class="gallery__item reveal" data-d="3">
-        <img src="foodtruck4.jpg" alt="Remolque Food Truck 4"
-          onerror="var p=this.parentNode;p.classList.add('gallery__item--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg><span>foodtruck4.jpg</span>';"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- ═══ CONFIGURADOR ══════════════════════════════════════════ -->
+<!-- ═══ CONFIGURADOR / FORMULARIO ════════════════════════════ -->
 <section class="config" id="configurar">
   <div class="wrap">
-    <p class="section-eyebrow reveal">Configurador</p>
-    <h2 class="section-title reveal">Elige tu remolque</h2>
+    <p class="section-eyebrow reveal">Cotización</p>
+    <h2 class="section-title reveal">Solicita tu remolque</h2>
 
-    <p class="model-selector-label reveal">Modelo del remolque</p>
-    <div class="model-selector-row reveal" data-d="1">
-
-      <!-- BÁSICO -->
-      <div class="model-chip" data-model="BÁSICO" data-price="$50,000 MXN" onclick="selectModel(this)">
-        <div class="model-chip__check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="model-chip__img">
-          <img src="basico.jpg" alt="Básico"
-            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
-        </div>
-        <div class="model-chip__body">
-          <p class="model-chip__name">Básico</p>
-          <p class="model-chip__price">$50,000</p>
-        </div>
-      </div>
-
-      <!-- EQUIPADO -->
-      <div class="model-chip" data-model="EQUIPADO" data-price="$60,000 MXN" onclick="selectModel(this)">
-        <div class="model-chip__check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="model-chip__img">
-          <img src="equipado.jpg" alt="Equipado"
-            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
-        </div>
-        <div class="model-chip__body">
-          <p class="model-chip__name">Equipado</p>
-          <p class="model-chip__price">$60,000</p>
-        </div>
-      </div>
-
-      <!-- SÚPER EQUIPADO -->
-      <div class="model-chip" data-model="SUPER EQUIPADO" data-price="$70,000 MXN" onclick="selectModel(this)">
-        <div class="model-chip__check">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="model-chip__img">
-          <img src="superequipado.jpg" alt="Súper Equipado"
-            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
-        </div>
-        <div class="model-chip__body">
-          <p class="model-chip__name">Súper Equipado</p>
-          <p class="model-chip__price">$70,000</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ─── FORMULARIO ─────────────────────────────────────── -->
     <div class="quote">
-      <div class="quote__inner">
-        <h3 class="quote__title">Solicita tu cotización</h3>
-        <p class="quote__sub">Completa tus datos y te contactamos por WhatsApp de inmediato.</p>
+      <div class="quote__inner reveal">
+        <h3 class="quote__title">Completa tus datos</h3>
+        <p class="quote__sub">Te contactamos por WhatsApp de inmediato con tu cotización.</p>
 
-        <div class="quote__alert" id="model-alert">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Por favor selecciona un modelo de remolque.
+        <div class="quote__selected">
+          <div class="quote__selected-info">
+            <div class="quote__selected-icon">
+              <svg viewBox="0 0 24 24"><path d="M1 10V7l2-5h9l2 5v3H1zM3 13a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm10 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+            </div>
+            <div>
+              <div class="quote__selected-name" id="selected-name">Modelo Básico</div>
+              <div class="quote__selected-sub">Modelo seleccionado</div>
+            </div>
+          </div>
+          <div class="quote__selected-prices">
+            <div class="quote__selected-price">
+              <div class="quote__selected-price-label">Total</div>
+              <div class="quote__selected-price-value" id="selected-total">$50,000</div>
+            </div>
+            <div class="quote__selected-price">
+              <div class="quote__selected-price-label">Anticipo</div>
+              <div class="quote__selected-price-value" id="selected-anticipo">$25,000</div>
+            </div>
+          </div>
         </div>
 
         <div class="form-grid">
@@ -698,7 +638,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
         <button class="submit-btn" onclick="sendQuote()">
           Enviar Cotización por WhatsApp
-          <!-- WhatsApp icon -->
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </button>
       </div>
@@ -810,31 +749,212 @@ const io = new IntersectionObserver(entries => {
 }, { rootMargin:'0px 0px -50px 0px', threshold:.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ── Selección de modelo ────────────────────────────────────
-let selectedModel = null;
-let selectedPrice = null;
+// ── Datos de modelos ────────────────────────────────────────
+const checkIcon = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
 
-function selectModel(card) {
-  // Deselect all
-  document.querySelectorAll('.model-chip').forEach(c => c.classList.remove('selected'));
-  // Select clicked
-  card.classList.add('selected');
-  selectedModel = card.dataset.model;
-  selectedPrice = card.dataset.price;
-  // Hide alert if visible
-  document.getElementById('model-alert').classList.remove('show');
+const MODELS = {
+  BASICO: {
+    label: 'Básico',
+    subtitle: 'Modelo Básico — listo para personalizar',
+    price: 50000,
+    anticipo: 25000,
+    description: 'El punto de entrada ideal para emprender. Estructura sólida, espacio optimizado y todo lo necesario para empezar a operar tu negocio sobre ruedas.',
+    features: [
+      'Chasis reforzado',
+      'Conexión para batería externa',
+      'Instalación eléctrica básica incluida',
+      'Estructura lista para personalizar'
+    ],
+    images: ['basico1.jpg','basico2.jpg','basico3.jpg','basico4.jpg']
+  },
+  EQUIPADO: {
+    label: 'Equipado',
+    subtitle: 'Modelo Equipado — más espacio y más equipo',
+    price: 60000,
+    anticipo: 30000,
+    description: 'Pensado para quienes quieren operar desde el primer día. Incluye más equipamiento interior y mejoras pensadas para un flujo de trabajo más eficiente.',
+    features: [
+      'Chasis reforzado de mayor capacidad',
+      'Instalación eléctrica completa',
+      'Barra de trabajo y almacenamiento adicional',
+      'Iluminación interior incluida',
+      'Conexión para batería externa'
+    ],
+    images: ['equipado1.jpg','equipado2.jpg','equipado3.jpg','equipado4.jpg']
+  },
+  SUPER: {
+    label: 'Súper Equipado',
+    subtitle: 'Modelo Súper Equipado — la opción todo incluido',
+    price: 70000,
+    anticipo: 35000,
+    description: 'Nuestra versión más completa. Equipamiento de alta gama, acabados premium y todos los detalles pensados para un negocio que opera al máximo nivel desde el día uno.',
+    features: [
+      'Chasis reforzado de máxima capacidad',
+      'Instalación eléctrica completa de alta capacidad',
+      'Equipamiento interior premium completo',
+      'Acabados de lujo en interior y exterior',
+      'Iluminación LED interior y exterior',
+      'Conexión para batería externa de alto rendimiento'
+    ],
+    images: ['super1.jpg','super2.jpg','super3.jpg','super4.jpg']
+  }
+};
+
+const MODEL_ORDER = ['BASICO','EQUIPADO','SUPER'];
+
+const emptyThumbSVG = '<div class="gallery-thumb--empty"><svg viewBox="0 0 48 48"><rect x="4" y="18" width="40" height="22" rx="3"/><path d="M4 22l6-14h28l6 14"/><circle cx="14" cy="42" r="4"/><circle cx="34" cy="42" r="4"/></svg></div>';
+
+function fmt(n){
+  return '$' + n.toLocaleString('es-MX') + ' MXN';
+}
+function fmtShort(n){
+  return '$' + n.toLocaleString('es-MX');
+}
+
+let currentModel = 'BASICO';
+let currentImageIndex = 0;
+
+// ── Render selector de modelos ──────────────────────────────
+const selectorRow = document.getElementById('model-selector-row');
+MODEL_ORDER.forEach(key => {
+  const m = MODELS[key];
+  const chip = document.createElement('div');
+  chip.className = 'model-chip' + (key === currentModel ? ' selected' : '');
+  chip.dataset.model = key;
+  chip.innerHTML = `
+    <div class="model-chip__check">${checkIcon}</div>
+    <div class="model-chip__name">${m.label}</div>
+    <div class="model-chip__price">${fmtShort(m.price)}</div>
+  `;
+  chip.addEventListener('click', () => selectModel(key));
+  selectorRow.appendChild(chip);
+});
+
+// ── Render galería ───────────────────────────────────────────
+const galleryMainImg = document.getElementById('gallery-main-img');
+const galleryThumbs = document.getElementById('gallery-thumbs');
+
+function renderGallery(modelKey, animate){
+  const m = MODELS[modelKey];
+  galleryThumbs.innerHTML = '';
+
+  m.images.forEach((src, idx) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'gallery-thumb' + (idx === 0 ? ' active' : '');
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = m.label + ' - vista ' + (idx+1);
+    img.onerror = function(){
+      thumb.classList.add('gallery-thumb--empty-wrap');
+      thumb.innerHTML = emptyThumbSVG;
+    };
+    thumb.appendChild(img);
+    thumb.addEventListener('click', () => setMainImage(modelKey, idx));
+    galleryThumbs.appendChild(thumb);
+  });
+
+  setMainImage(modelKey, 0, animate);
+}
+
+function setMainImage(modelKey, idx, animate){
+  const m = MODELS[modelKey];
+  currentImageIndex = idx;
+
+  // update thumb active state
+  document.querySelectorAll('.gallery-thumb').forEach((t,i) => {
+    t.classList.toggle('active', i === idx);
+  });
+
+  const apply = () => {
+    // remove previous empty-state if present
+    const mainContainer = document.getElementById('gallery-main');
+    const existingEmpty = mainContainer.querySelector('.gallery-main--empty');
+    if(existingEmpty) existingEmpty.remove();
+
+    galleryMainImg.style.display = '';
+    galleryMainImg.src = m.images[idx];
+  };
+
+  if(animate === false){
+    apply();
+    galleryMainImg.classList.remove('fade-out');
+    return;
+  }
+
+  galleryMainImg.classList.add('fade-out');
+  setTimeout(() => {
+    apply();
+    requestAnimationFrame(() => {
+      galleryMainImg.classList.remove('fade-out');
+    });
+  }, 180);
+}
+
+// ── Actualizar todo el contenido al cambiar modelo ──────────
+function updateContent(modelKey){
+  const m = MODELS[modelKey];
+
+  const fadeEls = [
+    document.getElementById('model-subtitle'),
+    document.getElementById('model-desc'),
+    document.getElementById('model-features')
+  ];
+  fadeEls.forEach(el => el.classList.add('fading'));
+
+  setTimeout(() => {
+    // Subtítulo
+    document.getElementById('model-subtitle').textContent = m.subtitle;
+
+    // Descripción
+    document.getElementById('model-desc').textContent = m.description;
+
+    // Features
+    const featuresWrap = document.getElementById('model-features');
+    featuresWrap.innerHTML = '';
+    m.features.forEach(f => {
+      const div = document.createElement('div');
+      div.className = 'hero__feature';
+      div.innerHTML = `<div class="hero__feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>${f}`;
+      featuresWrap.appendChild(div);
+    });
+
+    fadeEls.forEach(el => el.classList.remove('fading'));
+  }, 180);
+
+  // Precios
+  document.getElementById('price-total').textContent = fmt(m.price);
+  document.getElementById('price-anticipo').textContent = fmt(m.anticipo);
+  document.getElementById('tag-price').textContent = fmt(m.price);
+  document.getElementById('header-badge').textContent = 'Desde ' + fmt(m.price);
+
+  // Promo
+  document.getElementById('promo-total').textContent = fmt(m.price);
+  document.getElementById('promo-anticipo').textContent = fmt(m.anticipo);
+  document.getElementById('promo-model-name').textContent = 'modelo ' + m.label.toLowerCase();
+
+  // Resumen en cotización
+  document.getElementById('selected-name').textContent = 'Modelo ' + m.label;
+  document.getElementById('selected-total').textContent = fmtShort(m.price);
+  document.getElementById('selected-anticipo').textContent = fmtShort(m.anticipo);
+}
+
+// ── Selección de modelo ───────────────────────────────────────
+function selectModel(key){
+  if(key === currentModel) return;
+  currentModel = key;
+
+  document.querySelectorAll('.model-chip').forEach(c => {
+    c.classList.toggle('selected', c.dataset.model === key);
+  });
+
+  updateContent(key);
+  renderGallery(key, true);
 }
 window.selectModel = selectModel;
 
 // ── Envío por WhatsApp ─────────────────────────────────────
 function sendQuote() {
-  // Validate model selected
-  if (!selectedModel) {
-    const alert = document.getElementById('model-alert');
-    alert.classList.add('show');
-    alert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
+  const m = MODELS[currentModel];
 
   const nombre   = document.getElementById('f-nombre').value.trim();
   const telefono = document.getElementById('f-telefono').value.trim();
@@ -843,8 +963,9 @@ function sendQuote() {
   const msg = [
     'Hola, me interesa cotizar un remolque Food Truck.',
     '',
-    `Modelo seleccionado: ${selectedModel}`,
-    `Precio del modelo: ${selectedPrice}`,
+    `Modelo seleccionado: ${m.label}`,
+    `Precio del modelo: ${fmt(m.price)}`,
+    `Anticipo (50%): ${fmt(m.anticipo)}`,
     '',
     `Nombre: ${nombre || '(no indicado)'}`,
     `Teléfono: ${telefono || '(no indicado)'}`,
@@ -857,6 +978,10 @@ function sendQuote() {
   window.open(url, '_blank');
 }
 window.sendQuote = sendQuote;
+
+// ── Init ────────────────────────────────────────────────────
+updateContent(currentModel);
+renderGallery(currentModel, false);
 </script>
 </body>
 </html>
