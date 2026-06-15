@@ -259,64 +259,88 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 /* ─── CONFIGURADOR ──────────────────────────────────────────── */
 .config{padding:72px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.config__grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:16px;margin-bottom:48px;
+
+/* Selector tipo Temu / Amazon */
+.model-selector-label{
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:14px;
 }
-.model-card{
-  background:var(--bg);border:2px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
+.model-selector-row{
+  display:flex;gap:12px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding-bottom:4px;
+  margin-bottom:40px;
+}
+.model-selector-row::-webkit-scrollbar{display:none}
+
+.model-chip{
+  flex-shrink:0;
+  width:148px;
+  background:var(--bg);
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
   cursor:pointer;
-  transition:border-color .25s,box-shadow .25s,transform .25s;
   position:relative;
   user-select:none;
+  transition:border-color .22s,box-shadow .22s,transform .22s;
 }
-.model-card:hover{
+.model-chip:hover{
   border-color:var(--border-strong);
-  box-shadow:var(--shadow-md);
-  transform:translateY(-2px);
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-1px);
 }
-.model-card.selected{
+.model-chip.selected{
   border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(26,26,26,.12), var(--shadow-md);
-  transform:translateY(-3px);
+  box-shadow:0 0 0 3px rgba(26,26,26,.1), var(--shadow-sm);
+  transform:translateY(-2px);
   background:var(--surface);
 }
-.model-card__check{
-  position:absolute;top:12px;right:12px;
-  width:24px;height:24px;border-radius:50%;
+
+/* checkmark */
+.model-chip__check{
+  position:absolute;top:7px;right:7px;z-index:3;
+  width:20px;height:20px;border-radius:50%;
   background:var(--accent);
   display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(.7);
-  transition:opacity .2s,transform .2s cubic-bezier(.34,1.56,.64,1);
-  z-index:2;
+  opacity:0;transform:scale(.5);
+  transition:opacity .18s,transform .22s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
 }
-.model-card.selected .model-card__check{opacity:1;transform:scale(1)}
-.model-card__check svg{width:13px;height:13px;stroke:#fff;stroke-width:2.5;fill:none}
-.model-card__img{
-  aspect-ratio:4/3;overflow:hidden;
+.model-chip.selected .model-chip__check{opacity:1;transform:scale(1)}
+.model-chip__check svg{width:11px;height:11px;stroke:#fff;stroke-width:2.8;fill:none}
+
+/* foto */
+.model-chip__img{
+  width:100%;aspect-ratio:4/3;overflow:hidden;
   background:var(--border);
 }
-.model-card__img img{
+.model-chip__img img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+  transition:transform .45s cubic-bezier(.25,.46,.45,.94);
 }
-.model-card:hover .model-card__img img{transform:scale(1.05)}
-.model-card__img--empty{
+.model-chip:hover .model-chip__img img{transform:scale(1.07)}
+.model-chip__img--empty{
   display:flex;align-items:center;justify-content:center;
   background:var(--bg);height:100%;
 }
-.model-card__img--empty svg{width:40px;height:40px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
-.model-card__body{padding:18px 18px 20px}
-.model-card__name{
+.model-chip__img--empty svg{width:28px;height:28px;stroke:var(--border-strong);stroke-width:1.5;fill:none}
+
+/* texto debajo */
+.model-chip__body{padding:10px 11px 12px}
+.model-chip__name{
   font-family:var(--font-display);font-weight:700;
-  font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-2);margin-bottom:6px;
+  font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-2);margin-bottom:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.model-card.selected .model-card__name{color:var(--accent)}
-.model-card__price{
+.model-chip.selected .model-chip__name{color:var(--accent)}
+.model-chip__price{
   font-family:var(--font-display);font-weight:700;
-  font-size:1.375rem;color:var(--text);letter-spacing:-.01em;
+  font-size:.975rem;color:var(--text);letter-spacing:-.01em;
+  white-space:nowrap;
 }
 
 /* ─── FORMULARIO ────────────────────────────────────────────── */
@@ -422,7 +446,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .hero__inner{grid-template-columns:1fr;gap:36px}
   .hero__content{order:1}
   .hero__image-wrap{order:0;max-width:360px;margin:0 auto;width:100%}
-  .config__grid{grid-template-columns:1fr}
   .benefits__grid{grid-template-columns:1fr}
   .gallery__grid{grid-template-columns:repeat(2,1fr)}
   .promo__card{flex-direction:column;padding:36px 28px}
@@ -438,6 +461,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .gallery__grid{grid-template-columns:repeat(2,1fr)}
   .promo__card{padding:28px 20px}
   .promo{padding:40px 0}
+  .model-chip{width:130px}
 }
 </style>
 </head>
@@ -593,53 +617,54 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 <!-- ═══ CONFIGURADOR ══════════════════════════════════════════ -->
 <section class="config" id="configurar">
   <div class="wrap">
-    <p class="section-eyebrow reveal">Modelos</p>
+    <p class="section-eyebrow reveal">Configurador</p>
     <h2 class="section-title reveal">Elige tu remolque</h2>
 
-    <div class="config__grid">
+    <p class="model-selector-label reveal">Modelo del remolque</p>
+    <div class="model-selector-row reveal" data-d="1">
 
       <!-- BÁSICO -->
-      <div class="model-card reveal" data-d="1" data-model="BÁSICO" data-price="$50,000 MXN" onclick="selectModel(this)">
-        <div class="model-card__check">
+      <div class="model-chip" data-model="BÁSICO" data-price="$50,000 MXN" onclick="selectModel(this)">
+        <div class="model-chip__check">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="model-card__img" id="img-basico">
-          <img src="basico.jpg" alt="Modelo Básico"
-            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        <div class="model-chip__img">
+          <img src="basico.jpg" alt="Básico"
+            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
         </div>
-        <div class="model-card__body">
-          <p class="model-card__name">Básico</p>
-          <p class="model-card__price">$50,000 MXN</p>
+        <div class="model-chip__body">
+          <p class="model-chip__name">Básico</p>
+          <p class="model-chip__price">$50,000</p>
         </div>
       </div>
 
       <!-- EQUIPADO -->
-      <div class="model-card reveal" data-d="2" data-model="EQUIPADO" data-price="$60,000 MXN" onclick="selectModel(this)">
-        <div class="model-card__check">
+      <div class="model-chip" data-model="EQUIPADO" data-price="$60,000 MXN" onclick="selectModel(this)">
+        <div class="model-chip__check">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="model-card__img" id="img-equipado">
-          <img src="equipado.jpg" alt="Modelo Equipado"
-            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        <div class="model-chip__img">
+          <img src="equipado.jpg" alt="Equipado"
+            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
         </div>
-        <div class="model-card__body">
-          <p class="model-card__name">Equipado</p>
-          <p class="model-card__price">$60,000 MXN</p>
+        <div class="model-chip__body">
+          <p class="model-chip__name">Equipado</p>
+          <p class="model-chip__price">$60,000</p>
         </div>
       </div>
 
       <!-- SÚPER EQUIPADO -->
-      <div class="model-card reveal" data-d="3" data-model="SUPER EQUIPADO" data-price="$70,000 MXN" onclick="selectModel(this)">
-        <div class="model-card__check">
+      <div class="model-chip" data-model="SUPER EQUIPADO" data-price="$70,000 MXN" onclick="selectModel(this)">
+        <div class="model-chip__check">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="model-card__img" id="img-super">
-          <img src="superequipado.jpg" alt="Modelo Súper Equipado"
-            onerror="var p=this.parentNode;p.classList.add('model-card__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
+        <div class="model-chip__img">
+          <img src="superequipado.jpg" alt="Súper Equipado"
+            onerror="var p=this.parentNode;p.classList.add('model-chip__img--empty');p.innerHTML='<svg viewBox=\'0 0 48 48\'><rect x=\'4\' y=\'18\' width=\'40\' height=\'22\' rx=\'3\'/><path d=\'M4 22l6-14h28l6 14\'/><circle cx=\'14\' cy=\'42\' r=\'4\'/><circle cx=\'34\' cy=\'42\' r=\'4\'/></svg>';"/>
         </div>
-        <div class="model-card__body">
-          <p class="model-card__name">Súper Equipado</p>
-          <p class="model-card__price">$70,000 MXN</p>
+        <div class="model-chip__body">
+          <p class="model-chip__name">Súper Equipado</p>
+          <p class="model-chip__price">$70,000</p>
         </div>
       </div>
 
@@ -653,7 +678,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
         <div class="quote__alert" id="model-alert">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Selecciona un modelo antes de continuar.
+          Por favor selecciona un modelo de remolque.
         </div>
 
         <div class="form-grid">
@@ -791,7 +816,7 @@ let selectedPrice = null;
 
 function selectModel(card) {
   // Deselect all
-  document.querySelectorAll('.model-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.model-chip').forEach(c => c.classList.remove('selected'));
   // Select clicked
   card.classList.add('selected');
   selectedModel = card.dataset.model;
